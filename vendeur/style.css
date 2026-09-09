@@ -1,0 +1,1291 @@
+/* =========================
+   STYLE ESPACE VENDEUR
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+
+/* =========================
+   EN-TÊTE
+========================= */
+
+.header-vendeur {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 40px;
+
+    background: #111;
+    color: white;
+}
+
+.logo-vendeur {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.titre-vendeur {
+    font-size: 18px;
+}
+
+
+/* =========================
+   TABLEAU DE BORD
+========================= */
+
+.tableau-vendeur {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 40px auto;
+}
+
+.tableau-vendeur h1 {
+    margin-bottom: 10px;
+}
+
+.tableau-vendeur > p {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+
+/* =========================
+   STATISTIQUES
+========================= */
+
+.statistiques-vendeur {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.carte-statistique {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+.carte-statistique h3 {
+    margin-bottom: 15px;
+}
+
+.carte-statistique strong {
+    font-size: 24px;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.actions-vendeur {
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.actions-vendeur button {
+    border: none;
+
+    padding: 14px 20px;
+
+    border-radius: 8px;
+
+    background: #111;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+.actions-vendeur button:hover {
+    opacity: 0.85;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .header-vendeur {
+        padding: 15px 20px;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+        text-align: center;
+    }
+
+    .statistiques-vendeur {
+        grid-template-columns: 1fr;
+    }
+
+    .actions-vendeur {
+        flex-direction: column;
+    }
+
+    .actions-vendeur button {
+        width: 100%;
+    }
+
+}
+/* =========================
+   FENÊTRE AJOUT ARTICLE
+========================= */
+
+.fenetre-ajout-article {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   FORMULAIRE ARTICLE
+========================= */
+
+.formulaire-article {
+    position: relative;
+
+    width: 100%;
+    max-width: 550px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.formulaire-article h2 {
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   BOUTON FERMER
+========================= */
+
+.fermer-article {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   CHAMPS
+========================= */
+
+.formulaire-article input,
+.formulaire-article select,
+.formulaire-article textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+}
+
+.formulaire-article textarea {
+    resize: vertical;
+}
+
+
+/* =========================
+   BOUTON PUBLIER
+========================= */
+
+.formulaire-article button[type="submit"] {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.formulaire-article button[type="submit"]:hover {
+    opacity: 0.85;
+}
+/* =========================
+   FENÊTRE MES ARTICLES
+========================= */
+
+.fenetre-mes-articles {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 1000;
+}
+
+
+.contenu-mes-articles {
+    position: relative;
+
+    width: 100%;
+    max-width: 900px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+}
+
+
+.fermer-mes-articles {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+/* =========================
+   CARTES DES ARTICLES VENDEUR
+========================= */
+
+#liste-mes-articles {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================
+   CARTE ARTICLE
+========================= */
+
+.article-vendeur {
+
+    background: white;
+
+    border: 1px solid #eee;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.article-vendeur:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.12);
+
+}
+
+
+/* =========================
+   PHOTO ARTICLE
+========================= */
+
+.image-article-vendeur {
+
+    width: 100%;
+
+    height: 220px;
+
+    overflow: hidden;
+
+    background: #f5f5f5;
+
+}
+
+
+.image-article-vendeur img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+/* =========================
+   INFORMATIONS
+========================= */
+
+.informations-article {
+
+    padding: 18px;
+
+}
+
+
+.informations-article h3 {
+
+    margin-bottom: 12px;
+
+    font-size: 18px;
+
+}
+
+
+.informations-article p {
+
+    margin-bottom: 8px;
+
+    color: #555;
+
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.actions-article {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 18px;
+
+}
+
+
+.actions-article button {
+
+    flex: 1;
+
+    border: none;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+}
+
+
+.bouton-modifier {
+
+    background: #cfe2ff;
+
+    color: #084298;
+
+}
+
+
+.bouton-supprimer {
+
+    background: #f8d7da;
+
+    color: #842029;
+
+}
+
+
+.actions-article button:hover {
+
+    opacity: 0.8;
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    #liste-mes-articles {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    #liste-mes-articles {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .image-article-vendeur {
+
+        height: 250px;
+
+    }
+
+}
+/* =========================
+   FENÊTRE MODIFICATION ARTICLE
+========================= */
+
+.fenetre-modification {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 1001;
+}
+
+
+/* =========================
+   FORMULAIRE MODIFICATION
+========================= */
+
+.formulaire-modification {
+    position: relative;
+
+    width: 100%;
+    max-width: 550px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+.formulaire-modification h2 {
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   BOUTON FERMER
+========================= */
+
+.fermer-modification {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   CHAMPS MODIFICATION
+========================= */
+
+.formulaire-modification input,
+.formulaire-modification select,
+.formulaire-modification textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+}
+
+
+.formulaire-modification textarea {
+    resize: vertical;
+}
+
+
+/* =========================
+   BOUTON ENREGISTRER
+========================= */
+
+.formulaire-modification button[type="submit"] {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.formulaire-modification button[type="submit"]:hover {
+    opacity: 0.85;
+}
+
+/* =====================================================
+   ESPACE VENDEUR — MES VENTES
+===================================================== */
+
+
+/* =========================
+   FENÊTRE MES VENTES
+========================= */
+
+.fenetre-mes-ventes {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 1100;
+
+}
+
+
+/* =========================
+   CONTENU MES VENTES
+========================= */
+
+.contenu-mes-ventes {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 950px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.25);
+
+}
+
+
+/* =========================
+   TITRE
+========================= */
+
+.contenu-mes-ventes h2 {
+
+    margin-bottom: 25px;
+
+    padding-right: 40px;
+
+}
+
+
+/* =========================
+   BOUTON FERMER
+========================= */
+
+.fermer-mes-ventes {
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+}
+
+
+.fermer-mes-ventes:hover {
+
+    opacity: 0.8;
+
+}
+
+
+/* =========================
+   AUCUNE VENTE
+========================= */
+
+.aucune-vente {
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    color: #666;
+
+}
+
+
+.aucune-vente h3 {
+
+    margin: 15px 0 10px;
+
+    color: #222;
+
+}
+
+
+/* =========================
+   CARTE D'UNE COMMANDE
+========================= */
+
+.carte-vente {
+
+    background: #fff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.08);
+
+}
+
+
+/* =========================
+   EN-TÊTE DE LA COMMANDE
+========================= */
+
+.entete-vente {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+
+.entete-vente h3 {
+
+    font-size: 18px;
+
+}
+
+
+/* =========================
+   STATUT
+========================= */
+
+.select-statut-vente {
+
+    padding: 10px 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    background: white;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================
+   INFORMATIONS CLIENT
+========================= */
+
+.informations-client {
+
+    background: #f7f7f7;
+
+    padding: 18px;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.informations-client h4 {
+
+    margin-bottom: 12px;
+
+}
+
+
+.informations-client p {
+
+    margin-bottom: 8px;
+
+    color: #555;
+
+}
+
+
+/* =========================
+   PRODUITS COMMANDÉS
+========================= */
+
+.produits-commande {
+
+    margin-bottom: 20px;
+
+}
+
+
+.produits-commande h4 {
+
+    margin-bottom: 12px;
+
+}
+
+
+/* =========================
+   PRODUIT DANS LA COMMANDE
+========================= */
+
+.produit-vente {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 12px;
+
+    margin-bottom: 8px;
+
+    background: #f8f8f8;
+
+    border-radius: 8px;
+
+}
+
+
+.produit-vente span {
+
+    color: #555;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================
+   RÉSUMÉ DE LA VENTE
+========================= */
+
+.resume-vente {
+
+    border-top: 1px solid #eee;
+
+    padding-top: 15px;
+
+}
+
+
+.resume-vente p {
+
+    margin-bottom: 8px;
+
+}
+
+
+.total-vente {
+
+    font-size: 18px;
+
+}
+
+
+/* =========================
+   RESPONSIVE MES VENTES
+========================= */
+
+@media (max-width: 700px) {
+
+    .fenetre-mes-ventes {
+
+        padding: 10px;
+
+    }
+
+
+    .contenu-mes-ventes {
+
+        max-height: 95vh;
+
+        padding: 20px;
+
+    }
+
+
+    .entete-vente {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .select-statut-vente {
+
+        width: 100%;
+
+    }
+
+
+    .produit-vente {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
+/* =====================================================
+   ESPACE VENDEUR
+===================================================== */
+
+.espace-vendeur {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 15000;
+
+}
+
+
+/* =====================================================
+   CONTENU ESPACE VENDEUR
+===================================================== */
+
+.contenu-espace-vendeur {
+
+    position: relative;
+
+    width: 92%;
+    max-width: 900px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.3);
+
+}
+
+
+/* =====================================================
+   BOUTON FERMER
+===================================================== */
+
+.fermer-espace-vendeur {
+
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    color: #222;
+
+}
+
+
+.fermer-espace-vendeur:hover {
+
+    color: #d4af37;
+
+}
+
+
+/* =====================================================
+   TITRE ESPACE VENDEUR
+===================================================== */
+
+.contenu-espace-vendeur h1 {
+
+    text-align: center;
+
+    margin-bottom: 10px;
+
+}
+
+
+.contenu-espace-vendeur > p {
+
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* =====================================================
+   STATISTIQUES VENDEUR
+===================================================== */
+
+.statistiques-vendeur {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.carte-statistique {
+
+    background: #f7f7f7;
+
+    padding: 25px 20px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    border: 1px solid #eee;
+
+}
+
+
+.carte-statistique h3 {
+
+    margin-bottom: 15px;
+
+    font-size: 16px;
+
+}
+
+
+.carte-statistique strong {
+
+    display: block;
+
+    font-size: 25px;
+
+    color: #d4af37;
+
+}
+
+
+/* =====================================================
+   ACTIONS VENDEUR
+===================================================== */
+
+.actions-vendeur {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.actions-vendeur button {
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.actions-vendeur button:hover {
+
+    background: #d4af37;
+
+    color: #111;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =====================================================
+   ESPACE VENDEUR — TABLETTE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .statistiques-vendeur {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .actions-vendeur {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .contenu-espace-vendeur {
+
+        width: 94%;
+
+        padding: 25px;
+
+    }
+
+}
+

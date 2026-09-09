@@ -1,0 +1,6982 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Baby-market</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            color: #222;
+        }
+
+
+        /* =====================================================
+           BARRE DU HAUT
+        ===================================================== */
+
+        header {
+            background-color: #111;
+
+            padding: 18px 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+
+            position: relative;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            color: white;
+
+            font-size: 27px;
+            font-weight: bold;
+
+            white-space: nowrap;
+        }
+
+
+        /* =====================================================
+           RECHERCHE
+        ===================================================== */
+
+        .recherche {
+            display: flex;
+
+            flex: 1;
+
+            max-width: 600px;
+        }
+
+        .recherche input {
+            width: 100%;
+
+            padding: 13px 18px;
+
+            border: none;
+            outline: none;
+
+            font-size: 15px;
+
+            border-radius: 8px 0 0 8px;
+        }
+
+        .recherche button {
+            width: 55px;
+
+            border: none;
+
+            background-color: #d4af37;
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+            border-radius: 0 8px 8px 0;
+        }
+
+
+        /* =====================================================
+           PANIER
+        ===================================================== */
+
+        .panier {
+            background-color: #d4af37;
+
+            color: #111;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            white-space: nowrap;
+
+            transition: 0.2s;
+        }
+
+        .panier:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           COMPTE
+        ===================================================== */
+
+        .compte button {
+            background-color: white;
+
+            color: #111;
+
+            padding: 12px 20px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            white-space: nowrap;
+
+            transition: 0.2s;
+        }
+
+        .compte button:hover {
+            background-color: #d4af37;
+        }
+
+
+        /* =====================================================
+           MENU MON COMPTE
+        ===================================================== */
+
+        .menu-compte {
+
+            position: absolute;
+
+            top: 75px;
+            right: 50px;
+
+            width: 220px;
+
+            background-color: white;
+
+            border-radius: 12px;
+
+            padding: 10px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+
+            display: none;
+
+            z-index: 11000;
+        }
+
+        .menu-compte button {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: none;
+
+            background-color: white;
+
+            text-align: left;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            cursor: pointer;
+        }
+
+        .menu-compte button:hover {
+            background-color: #f1f1f1;
+        }
+
+
+        /* =====================================================
+           BANNIÈRE
+        ===================================================== */
+
+        .hero {
+
+            margin: 30px 50px;
+
+            padding: 90px 60px;
+
+            min-height: 430px;
+
+            background: linear-gradient(
+                120deg,
+                #111111,
+                #242424
+            );
+
+            color: white;
+
+            border-radius: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .hero h1 {
+
+            font-size: 46px;
+
+            margin-bottom: 18px;
+        }
+
+        .hero-petit-titre {
+
+            color: #d4af37;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .hero-description {
+
+            font-size: 18px;
+
+            margin-bottom: 28px;
+
+            color: #ddd;
+
+            max-width: 650px;
+
+            line-height: 1.5;
+        }
+
+        .hero button {
+
+            padding: 14px 28px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #d4af37;
+
+            color: #111;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .hero button:hover {
+
+            transform: translateY(-2px);
+
+            background-color: #e4c34f;
+        }
+
+
+        /* =====================================================
+           CATÉGORIES
+        ===================================================== */
+
+        .categories {
+
+            padding: 30px 50px;
+        }
+
+        .categories h2 {
+
+            margin-bottom: 22px;
+
+            font-size: 28px;
+        }
+
+        .toutes-categories {
+
+            margin-bottom: 20px;
+
+            padding: 10px 18px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #111;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .toutes-categories:hover {
+
+            background-color: #d4af37;
+
+            color: #111;
+        }
+
+        .liste-categories {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .categorie {
+
+            background-color: white;
+
+            padding: 22px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+
+            transition: 0.25s;
+        }
+
+        .categorie:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =====================================================
+           PRODUITS
+        ===================================================== */
+
+        .produits {
+
+            padding: 30px 50px;
+        }
+
+        .produits h2 {
+
+            margin-bottom: 25px;
+
+            font-size: 28px;
+        }
+
+        .grille {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 22px;
+        }
+
+        .produit {
+
+            background-color: white;
+
+            padding: 15px;
+
+            border-radius: 16px;
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s;
+
+            overflow: hidden;
+        }
+
+        .produit:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-produit {
+
+            height: 220px;
+
+            background-color: #eeeeee;
+
+            border-radius: 12px;
+
+            margin-bottom: 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .image-produit img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+
+            display: block;
+
+            border-radius: 12px;
+        }
+
+        .produit h3 {
+
+            margin-bottom: 10px;
+
+            font-size: 19px;
+        }
+
+        .description {
+
+            font-size: 14px;
+
+            color: #777;
+
+            margin-bottom: 12px;
+
+            line-height: 1.4;
+        }
+
+        .prix {
+
+            font-weight: bold;
+
+            font-size: 18px;
+
+            margin-bottom: 15px;
+        }
+
+        .produit button {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #111;
+
+            color: white;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            font-size: 15px;
+
+            transition: 0.25s;
+        }
+
+        .produit button:hover {
+
+            background-color: #d4af37;
+
+            color: #111;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           PRODUITS VENDEURS
+        ===================================================== */
+
+        #produits-vendeurs {
+
+            margin-top: 25px;
+        }
+
+
+        /* =====================================================
+           PANIER
+        ===================================================== */
+
+        #contenu-panier {
+
+            margin: 20px 50px;
+        }
+
+
+        /* =====================================================
+           FENÊTRES MODALES COMMUNES
+        ===================================================== */
+
+        .fenetre-inscription,
+        .fenetre-commande,
+        .fenetre-paiement,
+        .fenetre-wave,
+        .fenetre-orange,
+        .fenetre-mtn,
+        .fenetre-moov,
+        .fenetre-livraison,
+        .fenetre-commandes {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100vh;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+
+        /* =====================================================
+           INSCRIPTION
+        ===================================================== */
+
+        .fenetre-inscription {
+            z-index: 9999;
+        }
+
+        .formulaire-inscription {
+
+            position: relative;
+
+            width: 90%;
+
+            max-width: 450px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+        }
+
+        .formulaire-inscription h2 {
+
+            text-align: center;
+
+            margin-bottom: 10px;
+        }
+
+        .formulaire-inscription > p {
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+            color: #666;
+        }
+
+        #form-inscription {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        #form-inscription input {
+
+            padding: 13px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        #form-inscription input:focus {
+
+            border-color: #d4af37;
+        }
+
+        #form-inscription button {
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #d4af37;
+
+            color: #111;
+
+            font-weight: bold;
+
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+        #form-inscription button:hover {
+
+            background-color: #c19b2e;
+        }
+
+        .fermer-inscription {
+
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            border: none;
+
+            background: none;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           COMMANDE
+        ===================================================== */
+
+        .fenetre-commande {
+            z-index: 10000;
+        }
+
+        .formulaire-commande {
+
+            position: relative;
+
+            width: 90%;
+
+            max-width: 450px;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+        }
+
+        .formulaire-commande h2 {
+
+            text-align: center;
+
+            margin-bottom: 10px;
+        }
+
+        .formulaire-commande > p {
+
+            text-align: center;
+
+            color: #666;
+
+            margin-bottom: 20px;
+        }
+
+        #recapitulatif-commande {
+
+            background-color: #f7f7f7;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+        }
+
+        #recapitulatif-commande h3 {
+
+            margin-bottom: 12px;
+        }
+
+        #details-commande {
+
+            margin-bottom: 15px;
+        }
+
+        #total-commande {
+
+            border-top: 1px solid #ddd;
+
+            padding-top: 12px;
+        }
+
+        #form-commande {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        #form-commande input,
+        #form-commande textarea {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            font-family: Arial, sans-serif;
+        }
+
+        #form-commande input:focus,
+        #form-commande textarea:focus {
+
+            border-color: #d4af37;
+        }
+
+        #form-commande button {
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #d4af37;
+
+            color: #111;
+
+            font-weight: bold;
+
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+        #form-commande button:hover {
+
+            background-color: #c19b2e;
+        }
+
+        .fermer-commande {
+
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            border: none;
+
+            background: none;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           PAIEMENT
+        ===================================================== */
+
+        .fenetre-paiement {
+            z-index: 11000;
+        }
+
+        .formulaire-paiement {
+
+            position: relative;
+
+            width: 90%;
+
+            max-width: 450px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+        }
+
+        .formulaire-paiement h2 {
+
+            text-align: center;
+
+            margin-bottom: 10px;
+        }
+
+        .formulaire-paiement > p {
+
+            text-align: center;
+
+            color: #666;
+
+            margin-bottom: 20px;
+        }
+
+        .modes-paiement {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        .modes-paiement button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            background: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .modes-paiement button:hover {
+
+            background: #f5f5f5;
+        }
+
+        .fermer-paiement {
+
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            border: none;
+
+            background: none;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           WAVE
+        ===================================================== */
+
+        .fenetre-wave {
+            z-index: 12000;
+        }
+
+        .formulaire-wave {
+
+            position: relative;
+
+            width: 90%;
+
+            max-width: 400px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        .formulaire-wave h2 {
+
+            margin-bottom: 15px;
+        }
+
+        .formulaire-wave p {
+
+            color: #666;
+
+            margin-bottom: 8px;
+        }
+
+        #montant-wave {
+
+            font-size: 24px;
+
+            margin-bottom: 25px;
+        }
+
+        #form-wave {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        #form-wave input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        #form-wave input:focus {
+
+            border-color: #1689ff;
+        }
+
+        #form-wave button {
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #1689ff;
+
+            color: white;
+
+            font-weight: bold;
+
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+        .fermer-wave {
+
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            border: none;
+
+            background: none;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           ORANGE MONEY
+        ===================================================== */
+
+        .fenetre-orange {
+            z-index: 12000;
+        }
+
+        .formulaire-orange {
+
+            position: relative;
+
+            width: 90%;
+
+            max-width: 400px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        .formulaire-orange h2 {
+
+            margin-bottom: 15px;
+        }
+
+        .formulaire-orange p {
+
+            color: #666;
+
+            margin-bottom: 8px;
+        }
+
+        #montant-orange {
+
+            font-size: 24px;
+
+            margin-bottom: 25px;
+        }
+
+        #form-orange {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        #form-orange input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        #form-orange input:focus {
+
+            border-color: #ff7900;
+        }
+
+        #form-orange button {
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #ff7900;
+
+            color: white;
+
+            font-weight: bold;
+
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+        .fermer-orange {
+
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            border: none;
+
+            background: none;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           MTN MOMO
+        ===================================================== */
+
+        .fenetre-mtn {
+            z-index: 12000;
+        }
+
+        .formulaire-mtn {
+
+            position: relative;
+
+            width: 90%;
+
+            max-width: 400px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        .formulaire-mtn h2 {
+
+            margin-bottom: 15px;
+        }
+
+        .formulaire-mtn p {
+
+            color: #666;
+
+            margin-bottom: 8px;
+        }
+
+        #montant-mtn {
+
+            font-size: 24px;
+
+            margin-bottom: 25px;
+        }
+
+        #form-mtn {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        #form-mtn input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        #form-mtn input:focus {
+
+            border-color: #ffcc00;
+        }
+
+        #form-mtn button {
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #ffcc00;
+
+            color: #111;
+
+            font-weight: bold;
+
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+        .fermer-mtn {
+
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            border: none;
+
+            background: none;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           MOOV MONEY
+        ===================================================== */
+
+        .fenetre-moov {
+            z-index: 12000;
+        }
+
+        .formulaire-moov {
+
+            position: relative;
+
+            width: 90%;
+
+            max-width: 400px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        .formulaire-moov h2 {
+
+            margin-bottom: 15px;
+        }
+
+        .formulaire-moov p {
+
+            color: #666;
+
+            margin-bottom: 8px;
+        }
+
+        #montant-moov {
+
+            font-size: 24px;
+
+            margin-bottom: 25px;
+        }
+
+        #form-moov {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        #form-moov input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        #form-moov input:focus {
+
+            border-color: #009e49;
+        }
+
+        #form-moov button {
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #009e49;
+
+            color: white;
+
+            font-weight: bold;
+
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+        .fermer-moov {
+
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            border: none;
+
+            background: none;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           LIVRAISON
+        ===================================================== */
+
+        .fenetre-livraison {
+            z-index: 12000;
+        }
+
+        .formulaire-livraison {
+
+            position: relative;
+
+            width: 90%;
+
+            max-width: 400px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        .formulaire-livraison h2 {
+
+            margin-bottom: 15px;
+        }
+
+        .formulaire-livraison p {
+
+            color: #666;
+
+            margin-bottom: 10px;
+        }
+
+        #montant-livraison {
+
+            font-size: 24px;
+
+            margin-bottom: 25px;
+        }
+
+        #confirmer-livraison {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #009e49;
+
+            color: white;
+
+            font-weight: bold;
+
+            font-size: 15px;
+
+            cursor: pointer;
+        }
+
+        .fermer-livraison {
+
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            border: none;
+
+            background: none;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           MES COMMANDES
+        ===================================================== */
+
+        .fenetre-commandes {
+            z-index: 10001;
+        }
+
+        .contenu-commandes {
+
+            position: relative;
+
+            width: 90%;
+
+            max-width: 600px;
+
+            max-height: 80vh;
+
+            overflow-y: auto;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+        }
+
+        .contenu-commandes h2 {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        .fermer-commandes {
+
+            position: absolute;
+
+            top: 10px;
+            right: 10px;
+
+            border: none;
+
+            background: none;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+        .commande-client {
+
+            background: #f7f7f7;
+
+            padding: 18px;
+
+            margin-bottom: 15px;
+
+            border-radius: 10px;
+
+            border-left: 4px solid #d4af37;
+        }
+
+        .commande-client p {
+
+            margin-bottom: 7px;
+        }
+
+        .badge-statut {
+
+            display: inline-block;
+
+            padding: 5px 10px;
+
+            margin-left: 5px;
+
+            border-radius: 20px;
+
+            background: #fff3cd;
+
+            color: #856404;
+
+            font-weight: bold;
+
+            font-size: 14px;
+        }
+
+        .badge-attente {
+
+            background: #fff3cd;
+
+            color: #856404;
+        }
+
+        .badge-preparation {
+
+            background: #cfe2ff;
+
+            color: #084298;
+        }
+
+        .badge-expediee {
+
+            background: #d1ecf1;
+
+            color: #0c5460;
+        }
+
+        .badge-livree {
+
+            background: #d1e7dd;
+
+            color: #0f5132;
+        }
+
+
+        /* =====================================================
+           VERSION TABLETTE / TELEPHONE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .grille {
+
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .liste-categories {
+
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            header {
+
+                padding: 18px 25px;
+
+                gap: 15px;
+            }
+
+            .hero {
+
+                margin: 25px;
+
+                padding: 70px 40px;
+            }
+
+            .categories,
+            .produits {
+
+                padding: 25px;
+            }
+        }
+
+
+        @media (max-width: 800px) {
+
+            header {
+
+                padding: 18px 20px;
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            .logo {
+
+                width: 100%;
+
+                text-align: center;
+            }
+
+            .recherche {
+
+                width: 100%;
+
+                max-width: none;
+            }
+
+            .panier {
+
+                width: 100%;
+
+                text-align: center;
+            }
+
+            .compte {
+
+                width: 100%;
+            }
+
+            .compte button {
+
+                width: 100%;
+            }
+
+            .menu-compte {
+
+                position: absolute;
+
+                top: auto;
+
+                right: 20px;
+
+                left: 20px;
+
+                width: auto;
+            }
+
+            .hero {
+
+                margin: 20px;
+
+                padding: 50px 25px;
+
+                min-height: 350px;
+            }
+
+            .hero h1 {
+
+                font-size: 32px;
+            }
+
+            .hero-description {
+
+                font-size: 16px;
+            }
+
+            .categories,
+            .produits {
+
+                padding: 20px;
+            }
+
+            .liste-categories {
+
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grille {
+
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            #contenu-panier {
+
+                margin: 20px;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .liste-categories {
+
+                grid-template-columns: 1fr;
+            }
+
+            .grille {
+
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+
+                font-size: 28px;
+            }
+
+            .hero {
+
+                padding: 40px 22px;
+            }
+
+            .image-produit {
+
+                height: 250px;
+            }
+
+            .formulaire-inscription,
+            .formulaire-commande,
+            .formulaire-paiement,
+            .formulaire-wave,
+            .formulaire-orange,
+            .formulaire-mtn,
+            .formulaire-moov,
+            .formulaire-livraison,
+            .contenu-commandes {
+
+                width: 94%;
+
+                padding: 22px;
+            }
+        }
+        
+
+        
+
+/* =====================================================
+   FENÊTRE MES INFORMATIONS
+   MÊME STYLE QUE MES COMMANDES
+===================================================== */
+
+.fenetre-informations {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+
+}
+
+
+/* =====================================================
+   FORMULAIRE INFORMATIONS
+===================================================== */
+
+.formulaire-informations {
+
+    position: relative;
+
+    width: 90%;
+    max-width: 500px;
+
+    background: white;
+
+    color: #222;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.3);
+
+}
+
+
+/* =====================================================
+   TITRE
+===================================================== */
+
+.formulaire-informations h2 {
+
+    text-align: center;
+
+    color: #222;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =====================================================
+   INFORMATIONS CLIENT
+===================================================== */
+
+.information-client {
+
+    background: #f5f5f5;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+}
+
+
+.information-client p {
+
+    margin: 15px 0;
+
+    padding: 12px;
+
+    border-bottom: 1px solid #ddd;
+
+    font-size: 16px;
+
+}
+
+
+.information-client p:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.information-client strong {
+
+    color: #d4af37;
+
+}
+
+
+/* =====================================================
+   BOUTON FERMER
+===================================================== */
+
+.fermer-informations {
+
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #222;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+}
+
+
+.fermer-informations:hover {
+
+    color: #d4af37;
+
+}
+ /* =====================================================
+   ESPACE VENDEUR — PAGE PRINCIPALE
+   DESIGN CHIC
+===================================================== */
+
+.espace-vendeur {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.70);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 15000;
+
+}
+
+
+/* =====================================================
+   CONTENU ESPACE VENDEUR
+===================================================== */
+
+.contenu-espace-vendeur {
+
+    position: relative;
+
+    width: 94%;
+
+    max-width: 1000px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.30);
+
+}
+
+
+/* =====================================================
+   BOUTON FERMER
+===================================================== */
+
+.fermer-espace-vendeur {
+
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #111111;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+}
+
+
+.fermer-espace-vendeur:hover {
+
+    background: #d4af37;
+
+    color: #111111;
+
+    transform: rotate(90deg);
+
+}
+
+
+/* =====================================================
+   TITRE
+===================================================== */
+
+.contenu-espace-vendeur h1 {
+
+    text-align: center;
+
+    margin-bottom: 8px;
+
+    font-size: 28px;
+
+    color: #111111;
+
+}
+
+
+.contenu-espace-vendeur > p {
+
+    text-align: center;
+
+    color: #777777;
+
+    margin-bottom: 35px;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   STATISTIQUES
+===================================================== */
+
+.statistiques-vendeur {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.carte-statistique {
+
+    background: #ffffff;
+
+    padding: 25px 20px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    border: 1px solid #eeeeee;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.carte-statistique:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.10);
+
+}
+
+
+.carte-statistique h3 {
+
+    margin-bottom: 12px;
+
+    font-size: 14px;
+
+    color: #666666;
+
+}
+
+
+.carte-statistique strong {
+
+    display: block;
+
+    font-size: 28px;
+
+    color: #d4af37;
+
+}
+
+
+/* =====================================================
+   ACTIONS VENDEUR
+===================================================== */
+
+.actions-vendeur {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.actions-vendeur button {
+
+    padding: 16px 18px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #111111;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.actions-vendeur button:hover {
+
+    background: #d4af37;
+
+    color: #111111;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(212, 175, 55, 0.25);
+
+}
+
+
+/* =====================================================
+   TABLETTE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .contenu-espace-vendeur {
+
+        width: 94%;
+
+        padding: 28px;
+
+    }
+
+
+    .statistiques-vendeur {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .actions-vendeur {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 550px) {
+
+    .espace-vendeur {
+
+        padding: 10px;
+
+    }
+
+
+    .contenu-espace-vendeur {
+
+        width: 96%;
+
+        max-height: 94vh;
+
+        padding: 22px;
+
+        border-radius: 17px;
+
+    }
+
+
+    .contenu-espace-vendeur h1 {
+
+        font-size: 22px;
+
+        padding-right: 30px;
+
+    }
+
+
+    .contenu-espace-vendeur > p {
+
+        font-size: 13px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .statistiques-vendeur {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 12px;
+
+    }
+
+
+    .carte-statistique {
+
+        padding: 20px;
+
+    }
+
+
+    .actions-vendeur {
+
+        gap: 12px;
+
+    }
+
+
+    .actions-vendeur button {
+
+        width: 100%;
+
+        padding: 14px;
+
+    }
+
+}
+
+/* =========================================
+   CONTENU
+========================================= */
+
+.contenu-espace-vendeur {
+    position: relative;
+
+    width: 92%;
+    max-width: 900px;
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    padding: 40px;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================
+   TITRE
+========================================= */
+
+.contenu-espace-vendeur h2 {
+    text-align: center;
+
+    margin-bottom: 10px;
+
+    font-size: 28px;
+
+    color: #111;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.contenu-espace-vendeur > p {
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    color: #666;
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   STATISTIQUES VENDEUR
+========================================= */
+
+.statistiques-vendeur {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin: 30px 0;
+}
+
+
+/* =========================================
+   CARTES STATISTIQUES
+========================================= */
+
+.carte-statistique {
+    position: relative;
+
+    padding: 24px 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* Effet élégant au survol */
+
+.carte-statistique:hover {
+    transform: translateY(-5px);
+
+    border-color: #cfcfcf;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.11);
+}
+
+
+/* =========================================
+   TITRE DE LA CARTE
+========================================= */
+
+.carte-statistique h3 {
+    margin: 0 0 14px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #555;
+}
+
+
+/* =========================================
+   CHIFFRE
+========================================= */
+
+.carte-statistique strong {
+    display: block;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+/* =========================================
+   ACTIONS VENDEUR
+========================================= */
+
+.actions-vendeur {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 10px;
+}
+
+
+.actions-vendeur button {
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.actions-vendeur button:hover {
+    background: #222;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+.actions-vendeur button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================
+   VERSION TÉLÉPHONE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .statistiques-vendeur {
+        grid-template-columns: 1fr;
+    }
+
+    .carte-statistique {
+        padding: 20px;
+    }
+
+    .actions-vendeur {
+        flex-direction: column;
+    }
+
+    .actions-vendeur button {
+        width: 100%;
+    }
+
+}
+/* =========================================
+   BOUTONS D'ACTIONS
+========================================= */
+
+.actions-vendeur {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+.actions-vendeur button {
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.actions-vendeur button:hover {
+    transform: translateY(-2px);
+
+    background: #222;
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+.actions-vendeur button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .contenu-espace-vendeur {
+        padding: 25px 18px;
+    }
+
+    .statistiques-vendeur {
+        grid-template-columns: 1fr;
+    }
+    .actions-vendeur {
+        flex-direction: column;
+    }
+
+    .actions-vendeur button {
+        width: 100%;
+    }
+
+}
+
+/* =========================================
+   FENÊTRE MES ARTICLES
+========================================= */
+
+#fenetre-mes-articles {
+
+    position: fixed !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100vh !important;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    z-index: 20000;
+}
+
+
+/* =========================================
+   CONTENU MES ARTICLES
+========================================= */
+
+.contenu-mes-articles {
+
+    position: relative;
+
+    width: 94%;
+    max-width: 1000px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    padding: 32px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================
+   TITRE
+========================================= */
+
+.contenu-mes-articles h2 {
+
+    margin: 0 0 28px;
+
+    padding-bottom: 18px;
+
+    font-size: 26px;
+
+    color: #111;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+/* =========================================
+   BOUTON FERMER
+========================================= */
+
+.fermer-mes-articles {
+
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f1f1;
+
+    color: #333;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.fermer-mes-articles:hover {
+
+    background: #111;
+
+    color: white;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================
+   LISTE DES ARTICLES
+========================================= */
+
+#liste-mes-articles {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    #fenetre-mes-articles {
+
+        padding: 12px;
+
+    }
+
+
+    .contenu-mes-articles {
+
+        width: 100%;
+
+        padding: 22px;
+
+        border-radius: 16px;
+
+        max-height: 94vh;
+
+    }
+
+
+    .contenu-mes-articles h2 {
+
+        font-size: 21px;
+
+        padding-right: 40px;
+
+    }
+
+
+    #liste-mes-articles {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* =========================================
+   FENÊTRE AJOUTER UN ARTICLE
+========================================= */
+
+#fenetre-ajout-article {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    z-index: 20000;
+
+    padding: 20px;
+}
+
+
+/* =========================================
+   FORMULAIRE
+========================================= */
+
+.formulaire-article {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 680px;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    padding: 32px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================
+   TITRE
+========================================= */
+
+.formulaire-article h2 {
+
+    margin: 0 0 8px 0;
+
+    font-size: 25px;
+
+    color: #111;
+
+    font-weight: 700;
+}
+
+
+.formulaire-article > p {
+
+    margin-bottom: 28px;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.formulaire-article .section-formulaire {
+
+    margin-bottom: 24px;
+
+    padding: 20px;
+
+    background: #fafafa;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 14px;
+}
+
+
+.formulaire-article .section-formulaire h3 {
+
+    margin: 0 0 18px 0;
+
+    font-size: 17px;
+
+    color: #222;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   CHAMPS
+========================================= */
+
+.formulaire-article label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #333;
+}
+
+
+.formulaire-article input,
+.formulaire-article select,
+.formulaire-article textarea {
+
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #dcdcdc;
+
+    border-radius: 10px;
+
+    background: #fff;
+
+    color: #222;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+
+.formulaire-article input:focus,
+.formulaire-article select:focus,
+.formulaire-article textarea:focus {
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+
+/* =========================================
+   ESPACEMENT ENTRE LES CHAMPS
+========================================= */
+
+.formulaire-article .champ-formulaire {
+
+    margin-bottom: 18px;
+}
+
+
+.formulaire-article .champ-formulaire:last-child {
+
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   DEUX CHAMPS SUR UNE LIGNE
+========================================= */
+
+.formulaire-article .ligne-champs {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px;
+}
+
+
+/* =========================================
+   PRIX
+========================================= */
+
+.formulaire-article .champ-prix {
+
+    position: relative;
+}
+
+
+.formulaire-article .champ-prix input {
+
+    padding-right: 65px;
+}
+
+
+.formulaire-article .champ-prix span {
+
+    position: absolute;
+
+    right: 14px;
+    bottom: 13px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.formulaire-article textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   PHOTO
+========================================= */
+
+.formulaire-article .zone-photo {
+
+    padding: 22px;
+
+    text-align: center;
+
+    border: 2px dashed #d8d8d8;
+
+    border-radius: 12px;
+
+    background: #fff;
+
+    transition: 0.2s;
+}
+
+
+.formulaire-article .zone-photo:hover {
+
+    border-color: #d4af37;
+
+    background: #fffdf7;
+}
+
+
+.formulaire-article .zone-photo p {
+
+    margin: 0 0 12px 0;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+.formulaire-article input[type="file"] {
+
+    padding: 10px;
+
+    cursor: pointer;
+
+    background: #fafafa;
+}
+
+
+/* =========================================
+   BOUTONS
+========================================= */
+
+.formulaire-article .actions-formulaire {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+
+.formulaire-article .actions-formulaire button {
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 13px 20px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* ANNULER */
+
+.formulaire-article .btn-annuler {
+
+    background: #eeeeee;
+
+    color: #333;
+}
+
+
+.formulaire-article .btn-annuler:hover {
+
+    background: #dddddd;
+}
+
+
+/* PUBLIER */
+
+.formulaire-article .btn-publier {
+
+    background: #111;
+
+    color: #fff;
+}
+
+
+.formulaire-article .btn-publier:hover {
+
+    background: #d4af37;
+
+    color: #111;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    #fenetre-ajout-article {
+
+        padding: 10px;
+
+        align-items: flex-start;
+
+        padding-top: 20px;
+    }
+
+
+    .formulaire-article {
+
+        width: 100%;
+
+        max-height: 94vh;
+
+        padding: 22px;
+
+        border-radius: 16px;
+    }
+
+
+    .formulaire-article h2 {
+
+        font-size: 21px;
+    }
+
+
+    .formulaire-article .section-formulaire {
+
+        padding: 16px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .formulaire-article .ligne-champs {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+
+    .formulaire-article .actions-formulaire {
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .formulaire-article .actions-formulaire button {
+
+        width: 100%;
+    }
+}
+
+/* =====================================================
+   FENÊTRE MES VENTES
+===================================================== */
+
+#fenetre-mes-ventes {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.70);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 20000;
+}
+
+/* =====================================================
+   FENÊTRE MODIFIER UN ARTICLE
+===================================================== */
+
+#fenetre-modification {
+
+    position: fixed !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100vh !important;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.70);
+
+    padding: 15px;
+
+    z-index: 30000;
+}
+
+
+/* =====================================================
+   FORMULAIRE
+===================================================== */
+
+.formulaire-modification {
+
+    position: relative;
+
+    width: 92%;
+
+    max-width: 520px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    padding: 24px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.30);
+}
+
+
+/* =====================================================
+   TITRE
+===================================================== */
+
+.formulaire-modification h2 {
+
+    text-align: center;
+
+    margin: 0 0 20px 0;
+
+    font-size: 21px;
+
+    color: #111111;
+}
+
+
+/* =====================================================
+   BOUTON FERMER
+===================================================== */
+
+.fermer-modification {
+
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f1f1;
+
+    color: #333;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.fermer-modification:hover {
+
+    background: #111;
+
+    color: white;
+}
+
+
+/* =====================================================
+   FORMULAIRE
+===================================================== */
+
+#form-modification {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* =====================================================
+   CHAMPS
+===================================================== */
+
+#form-modification input,
+#form-modification select,
+#form-modification textarea {
+
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    font-family: Arial, sans-serif;
+
+    outline: none;
+
+    background: #ffffff;
+
+    transition: 0.2s;
+
+    box-sizing: border-box;
+}
+
+
+#form-modification input:focus,
+#form-modification select:focus,
+#form-modification textarea:focus {
+
+    border-color: #d4af37;
+
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.12);
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+#modification-description {
+
+    min-height: 90px;
+
+    resize: vertical;
+}
+
+
+/* =====================================================
+   BOUTON ENREGISTRER
+===================================================== */
+
+#form-modification button[type="submit"] {
+
+    width: 100%;
+
+    padding: 11px;
+
+    margin-top: 4px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #111111;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+#form-modification button[type="submit"]:hover {
+
+    background: #d4af37;
+
+    color: #111111;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .formulaire-modification {
+
+        width: 94%;
+
+        padding: 20px;
+
+        border-radius: 12px;
+    }
+
+
+    .formulaire-modification h2 {
+
+        font-size: 19px;
+
+        margin-bottom: 17px;
+    }
+
+
+    #form-modification {
+
+        gap: 9px;
+    }
+
+
+    #form-modification input,
+    #form-modification select,
+    #form-modification textarea {
+
+        padding: 10px;
+
+        font-size: 13px;
+    }
+
+
+    #form-modification button[type="submit"] {
+
+        padding: 10px;
+
+        font-size: 13px;
+    }
+
+}
+
+/* =====================================================
+   BOUTON FERMER
+===================================================== */
+
+.fermer-modification {
+
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    width: 36px;
+    height: 36px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #111111;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    z-index: 2;
+}
+
+
+.fermer-modification:hover {
+
+    background: #d4af37;
+
+    color: #111111;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    #fenetre-modification {
+
+        padding: 10px;
+    }
+
+    .formulaire-modification {
+
+        width: 96%;
+
+        max-height: 94vh;
+
+        padding: 22px;
+
+        border-radius: 17px;
+    }
+
+    .formulaire-modification h2 {
+
+        font-size: 22px;
+
+        padding-right: 30px;
+    }
+}
+
+
+
+
+/* =====================================================
+   CONTENU
+===================================================== */
+
+.contenu-mes-ventes {
+
+    position: relative;
+
+    width: 94%;
+
+    max-width: 1050px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.30);
+}
+/* =====================================================
+   CONTENU MES VENTES
+   MÊME STYLE QUE MES ARTICLES
+===================================================== */
+
+.contenu-mes-ventes {
+
+    position: relative;
+
+    width: 94%;
+
+    max-width: 1050px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    border: 1px solid #e5e5e5;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.25);
+
+    color: #222222;
+}
+/* =====================================================
+   BARRE DE DÉFILEMENT
+===================================================== */
+
+.contenu-mes-ventes::-webkit-scrollbar {
+
+    width: 7px;
+}
+
+
+.contenu-mes-ventes::-webkit-scrollbar-track {
+
+    background: #1c1c1c;
+
+    border-radius: 10px;
+}
+
+
+.contenu-mes-ventes::-webkit-scrollbar-thumb {
+
+    background: #d4af37;
+
+    border-radius: 10px;
+}
+
+
+.contenu-mes-ventes::-webkit-scrollbar-thumb:hover {
+
+    background: #f0cf55;
+}
+
+
+/* =====================================================
+   TITRE
+===================================================== */
+
+.contenu-mes-ventes h2 {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: #d4af37;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =====================================================
+   CARTES MES VENTES
+   MÊME STYLE QUE MES ARTICLES
+===================================================== */
+
+.carte-vente {
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+    color: #222222;
+}
+
+.carte-vente:hover {
+
+    transform: translateY(-3px);
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================================
+   TITRE DE LA VENTE
+===================================================== */
+
+.vente-titre {
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    color: #111111;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 14px;
+
+    border-bottom: 2px solid #d4af37;
+}
+/* =====================================================
+   INFORMATIONS DE LA VENTE
+===================================================== */
+
+.carte-vente p {
+
+    color: #444444;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+
+    line-height: 1.6;
+}
+
+/* =====================================================
+   INFORMATIONS DE LA VENTE
+===================================================== */
+
+.carte-vente strong {
+
+    color: #5b0b0b;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   PRODUITS VENDUS
+===================================================== */
+
+/* =====================================================
+   PRODUITS DE LA VENTE
+===================================================== */
+
+.carte-vente h4 {
+
+    color: #111111;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    margin-top: 22px;
+
+    margin-bottom: 12px;
+}
+
+.carte-vente ul {
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+.carte-vente li {
+
+    padding: 12px 15px;
+
+    margin-bottom: 8px;
+
+    background: #f8f8f8;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 10px;
+
+    color: #444444;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   TOTAL VENDEUR
+===================================================== */
+
+.carte-vente .total-vendeur {
+
+    margin-top: 20px;
+
+    padding: 15px 18px;
+
+    background: #111111;
+
+    border-radius: 12px;
+
+    color: #d4af37;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    text-align: right;
+
+    border: 1px solid #d4af37;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+/* =====================================================
+   STATUT DE LA COMMANDE
+===================================================== */
+
+.vente-statuts {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    margin-bottom: 18px;
+}
+
+.etape-statut {
+
+    padding: 11px 8px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    background: #f7f7f7;
+
+    border: 1px solid #e5e5e5;
+
+    font-size: 13px;
+
+    color: #777777;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.etape-statut.actif {
+
+    background: #f3e8c1;
+
+    border-color: #d4af37;
+
+    color: #6d5700;
+
+    font-weight: 700;
+}
+
+/* =====================================================
+   MENU STATUT
+===================================================== */
+
+.carte-vente select {
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    margin-top: 8px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #222222;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.carte-vente select:focus {
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+/* =====================================================
+   BLOCS D'INFORMATIONS
+===================================================== */
+
+.vente-bloc {
+
+    margin-top: 20px;
+
+    padding: 18px;
+
+    background: #fafafa;
+
+    border-radius: 14px;
+
+}
+
+
+.vente-bloc h3 {
+
+    margin-bottom: 15px;
+
+    font-size: 16px;
+
+    color: #222222;
+
+}
+
+
+/* =====================================================
+   INFORMATIONS CLIENT
+===================================================== */
+
+.infos-client-vente {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.info-vente {
+
+    padding: 12px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    border: 1px solid #eeeeee;
+
+    font-size: 14px;
+
+    color: #666666;
+
+}
+
+
+.info-vente strong {
+
+    color: #222222;
+
+}
+
+
+/* =====================================================
+   PRODUITS
+===================================================== */
+
+.liste-produits-vente {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.vente-produit {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    border: 1px solid #eeeeee;
+
+}
+
+
+.vente-produit-nom {
+
+    font-weight: bold;
+
+    color: #222222;
+
+}
+
+
+.vente-produit-detail {
+
+    font-size: 13px;
+
+    color: #777777;
+
+}
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+.total-vente {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 20px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #eeeeee;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #d4af37;
+
+}
+
+
+/* =====================================================
+   BOUTONS DE STATUT
+===================================================== */
+
+.ligne-statut {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+}
+
+
+.ligne-statut button {
+
+    border: none;
+
+    padding: 11px 8px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    background: #f1f1f1;
+
+    color: #555555;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    transition: 0.2s ease;
+
+}
+
+
+.ligne-statut button:hover {
+
+    background: #d4af37;
+
+    color: #111111;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =====================================================
+   MOBILE / TABLETTE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .contenu-mes-ventes {
+
+        width: 94%;
+
+        padding: 28px;
+
+    }
+
+
+    .vente-statuts {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .ligne-statut {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    #fenetre-mes-ventes {
+
+        padding: 10px;
+
+    }
+
+
+    .contenu-mes-ventes {
+
+        width: 96%;
+
+        max-height: 94vh;
+
+        padding: 22px;
+
+        border-radius: 17px;
+
+    }
+
+
+    .contenu-mes-ventes h2 {
+
+        font-size: 22px;
+
+    }
+
+
+    .vente-statuts {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .ligne-statut {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .infos-client-vente {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .vente-produit {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .total-vente {
+
+        font-size: 18px;
+
+    }
+
+}
+/* =====================================================
+   COULEURS DES STATUTS — MES VENTES
+===================================================== */
+
+.etape-statut:nth-child(1) {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffe69c;
+}
+
+.etape-statut:nth-child(2) {
+    background: #ffe5d0;
+    color: #9a3412;
+    border: 1px solid #ffccaa;
+}
+
+.etape-statut:nth-child(3) {
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+
+.etape-statut:nth-child(4) {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+
+/* =====================================================
+   STATUT ACTUEL
+===================================================== */
+
+.etape-statut.actif {
+
+    font-weight: bold;
+
+    transform: scale(1.03);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.10);
+
+}
+
+/* =====================================================
+   ESPACE VENDEUR — PAGE PRINCIPALE
+   DESIGN CHIC
+===================================================== */
+
+.espace-vendeur {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.70);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 15000;
+
+}
+
+
+/* =====================================================
+   CONTENU ESPACE VENDEUR
+===================================================== */
+
+.contenu-espace-vendeur {
+
+    position: relative;
+
+    width: 94%;
+
+    max-width: 1000px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.30);
+
+}
+
+
+/* =====================================================
+   BOUTON FERMER
+===================================================== */
+
+.fermer-espace-vendeur {
+
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #111111;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+}
+
+
+.fermer-espace-vendeur:hover {
+
+    background: #d4af37;
+
+    color: #111111;
+
+    transform: rotate(90deg);
+
+}
+
+
+/* =====================================================
+   TITRE
+===================================================== */
+
+.contenu-espace-vendeur h1 {
+
+    text-align: center;
+
+    margin-bottom: 8px;
+
+    font-size: 28px;
+
+    color: #111111;
+
+}
+
+
+.contenu-espace-vendeur > p {
+
+    text-align: center;
+
+    color: #777777;
+
+    margin-bottom: 35px;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   STATISTIQUES
+===================================================== */
+
+.statistiques-vendeur {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.carte-statistique {
+
+    background: #ffffff;
+
+    padding: 25px 20px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    border: 1px solid #eeeeee;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.carte-statistique:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.10);
+
+}
+
+
+.carte-statistique h3 {
+
+    margin-bottom: 12px;
+
+    font-size: 14px;
+
+    color: #666666;
+
+}
+
+
+.carte-statistique strong {
+
+    display: block;
+
+    font-size: 28px;
+
+    color: #d4af37;
+
+}
+
+
+/* =====================================================
+   ACTIONS VENDEUR
+===================================================== */
+
+.actions-vendeur {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.actions-vendeur button {
+
+    padding: 16px 18px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #111111;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.actions-vendeur button:hover {
+
+    background: #d4af37;
+
+    color: #111111;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(212, 175, 55, 0.25);
+
+}
+
+
+/* =====================================================
+   TABLETTE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .contenu-espace-vendeur {
+
+        width: 94%;
+
+        padding: 28px;
+
+    }
+
+
+    .statistiques-vendeur {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .actions-vendeur {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 550px) {
+
+    .espace-vendeur {
+
+        padding: 10px;
+
+    }
+
+
+    .contenu-espace-vendeur {
+
+        width: 96%;
+
+        max-height: 94vh;
+
+        padding: 22px;
+
+        border-radius: 17px;
+
+    }
+
+
+    .contenu-espace-vendeur h1 {
+
+        font-size: 22px;
+
+        padding-right: 30px;
+
+    }
+
+
+    .contenu-espace-vendeur > p {
+
+        font-size: 13px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .statistiques-vendeur {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 12px;
+
+    }
+
+
+    .carte-statistique {
+
+        padding: 20px;
+
+    }
+
+
+    .actions-vendeur {
+
+        gap: 12px;
+
+    }
+
+
+    .actions-vendeur button {
+
+        width: 100%;
+
+        padding: 14px;
+
+    }
+
+}
+/* =========================================
+   BOUTONS FERMER — STYLE CHIC
+========================================= */
+
+.fermer-espace-vendeur,
+.fermer-article,
+.fermer-mes-articles,
+.fermer-mes-ventes,
+.fermer-modification,
+.fermer-commande,
+.fermer-informations,
+.fermer-inscription {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #f1f1f1;
+    color: #333;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+.fermer-espace-vendeur:hover,
+.fermer-article:hover,
+.fermer-mes-articles:hover,
+.fermer-mes-ventes:hover,
+.fermer-modification:hover,
+.fermer-commande:hover,
+.fermer-informations:hover,
+.fermer-inscription:hover {
+    background: #222;
+    color: white;
+
+    transform: rotate(90deg) scale(1.05);
+}
+/* =====================================================
+   CROIX FERMETURE — MES INFORMATIONS
+===================================================== */
+
+.fermer-informations {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #f3f3f3;
+    color: #222;
+
+    font-size: 20px;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Effet au passage de la souris */
+.fermer-informations:hover {
+    background: #111;
+    color: white;
+
+    transform: rotate(90deg) scale(1.05);
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* Petit effet au clic */
+.fermer-informations:active {
+    transform: rotate(90deg) scale(0.92);
+}
+/* =====================================================
+   CROIX FERMETURE — MES COMMANDES
+===================================================== */
+
+.formulaire-commandes {
+    position: relative;
+}
+
+.fermer-commandes {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #f3f3f3;
+    color: #222;
+
+    font-size: 20px;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.fermer-commandes:hover {
+    background: #111;
+    color: white;
+
+    transform: rotate(90deg) scale(1.05);
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.fermer-commandes:active {
+    transform: rotate(90deg) scale(0.92);
+} 
+/* =====================================================
+   MES ARTICLES — VERSION COMPACTE
+===================================================== */
+
+#liste-mes-articles {
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 10px !important;
+
+    width: 100% !important;
+}
+
+
+/* =====================================================
+   CHAQUE ARTICLE
+===================================================== */
+
+#liste-mes-articles > div {
+
+    display: grid !important;
+
+    grid-template-columns: 80px 1fr !important;
+
+    grid-template-rows:
+        auto
+        auto
+        auto
+        auto
+        auto !important;
+
+    column-gap: 12px !important;
+
+    width: 100% !important;
+
+    min-height: 90px !important;
+
+    padding: 10px !important;
+
+    margin: 0 !important;
+
+    background: #f7f7f7 !important;
+
+    border: 1px solid #e5e5e5 !important;
+
+    border-radius: 10px !important;
+
+    box-shadow: none !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+#liste-mes-articles > div img {
+
+    grid-column: 1 !important;
+
+    grid-row: 1 / 6 !important;
+
+    width: 75px !important;
+
+    height: 75px !important;
+
+    object-fit: contain !important;
+
+    margin: 0 !important;
+
+    border-radius: 8px !important;
+
+    background: white !important;
+
+    align-self: center !important;
+}
+
+
+/* =====================================================
+   NOM
+===================================================== */
+
+#liste-mes-articles > div h3 {
+
+    grid-column: 2 !important;
+
+    grid-row: 1 !important;
+
+    margin: 0 0 2px 0 !important;
+
+    font-size: 15px !important;
+
+    line-height: 1.2 !important;
+}
+
+
+/* =====================================================
+   PRIX
+===================================================== */
+
+#liste-mes-articles > div p:nth-of-type(1) {
+
+    grid-column: 2 !important;
+
+    grid-row: 2 !important;
+
+    margin: 1px 0 !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.2 !important;
+}
+
+
+/* =====================================================
+   STOCK
+===================================================== */
+
+#liste-mes-articles > div p:nth-of-type(2) {
+
+    grid-column: 2 !important;
+
+    grid-row: 3 !important;
+
+    margin: 1px 0 !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.2 !important;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+#liste-mes-articles > div p:nth-of-type(3) {
+
+    grid-column: 2 !important;
+
+    grid-row: 4 !important;
+
+    margin: 2px 0 !important;
+
+    font-size: 12px !important;
+
+    color: #666 !important;
+
+    white-space: nowrap !important;
+
+    overflow: hidden !important;
+
+    text-overflow: ellipsis !important;
+}
+
+
+/* =====================================================
+   BOUTONS
+===================================================== */
+
+#liste-mes-articles > div > div {
+
+    grid-column: 2 !important;
+
+    grid-row: 5 !important;
+
+    display: flex !important;
+
+    gap: 6px !important;
+
+    margin-top: 3px !important;
+}
+
+
+#liste-mes-articles > div button {
+
+    padding: 5px 9px !important;
+
+    font-size: 12px !important;
+
+    border-radius: 6px !important;
+
+    cursor: pointer !important;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    #liste-mes-articles > div {
+
+        grid-template-columns: 65px 1fr !important;
+
+        column-gap: 10px !important;
+
+        padding: 8px !important;
+    }
+
+
+    #liste-mes-articles > div img {
+
+        width: 60px !important;
+
+        height: 60px !important;
+    }
+
+
+    #liste-mes-articles > div h3 {
+
+        font-size: 14px !important;
+    }
+
+
+    #liste-mes-articles > div p {
+
+        font-size: 12px !important;
+    }
+
+
+    #liste-mes-articles > div button {
+
+        padding: 4px 7px !important;
+
+        font-size: 11px !important;
+    }
+
+}
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MENU PRINCIPAL
+    ===================================================== -->
+
+    <header>
+
+        <div class="logo">
+            Baby-market
+        </div>
+
+
+        <!-- RECHERCHE -->
+
+        <div class="recherche">
+
+            <input
+                type="text"
+                id="recherche-produit"
+                placeholder="Rechercher un produit..."
+            >
+
+            <button type="button">
+                🔎
+            </button>
+
+        </div>
+
+
+        <!-- PANIER -->
+
+        <div
+            class="panier"
+            onclick="afficherMasquerPanier()"
+        >
+
+            🛒 Panier
+            (<span id="nombre-panier">0</span>)
+
+        </div>
+
+
+        <!-- COMPTE -->
+
+        <div class="compte">
+
+            <button
+                id="bouton-compte"
+                type="button"
+            >
+                👤 S'inscrire
+            </button>
+
+        </div>
+
+
+        <!-- MENU COMPTE -->
+
+        <div
+            id="menu-compte"
+            class="menu-compte"
+        >
+
+            <button
+                type="button"
+                onclick="afficherInformationsClient()"
+            >
+                👤 Mes informations
+            </button>
+
+            <button
+                type="button"
+                onclick="afficherMesCommandes()"
+            >
+                📦 Mes commandes
+            </button>
+
+            <button
+               type="button"
+                onclick="afficherEspaceVendeur()"
+            >
+             🏪 Espace vendeur
+            </button>
+
+            <button
+                type="button"
+                onclick="deconnecterClient()"
+            >
+                🚪 Se déconnecter
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENU DU PANIER
+    ===================================================== -->
+
+    <div id="contenu-panier"></div>
+
+
+
+    <!-- =====================================================
+         GRANDE BANNIÈRE
+    ===================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-contenu">
+
+            <p class="hero-petit-titre">
+                Baby-Market
+            </p>
+
+            <h1>
+                Tout ce dont vous avez besoin,
+                <br>
+                au même endroit.
+            </h1>
+
+            <p class="hero-description">
+
+                Découvrez une sélection de produits
+                à des prix attractifs.
+
+                Achetez simplement,
+                rapidement et en toute confiance.
+
+            </p>
+
+            <button
+                type="button"
+                onclick="
+                    document
+                    .querySelector('.produits')
+                    .scrollIntoView({
+                        behavior: 'smooth'
+                    })
+                "
+            >
+                Découvrir les produits
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CATÉGORIES
+    ===================================================== -->
+
+    <section class="categories">
+
+        <h2>
+            Catégories
+        </h2>
+
+
+        <button
+            type="button"
+            class="toutes-categories"
+            onclick="afficherTousLesProduits()"
+        >
+            Tous les produits
+        </button>
+
+
+        <div class="liste-categories">
+
+
+            <div
+                class="categorie"
+                onclick="filtrerCategorie('mode')"
+            >
+                👕 Mode & Vêtements
+            </div>
+
+
+            <div
+                class="categorie"
+                onclick="filtrerCategorie('chaussures')"
+            >
+                👟 Chaussures
+            </div>
+
+
+            <div
+                class="categorie"
+                onclick="filtrerCategorie('telephones')"
+            >
+                📱 Téléphones
+            </div>
+
+
+            <div
+                class="categorie"
+                onclick="filtrerCategorie('informatique')"
+            >
+                💻 Informatique
+            </div>
+
+
+            <div
+                class="categorie"
+                onclick="filtrerCategorie('maison')"
+            >
+                🏠 Maison
+            </div>
+
+
+            <div
+                class="categorie"
+                onclick="filtrerCategorie('beaute')"
+            >
+                💄 Beauté
+            </div>
+
+
+            <div
+                class="categorie"
+                onclick="filtrerCategorie('jeux')"
+            >
+                🎮 Jeux & Loisirs
+            </div>
+
+
+            <div
+                class="categorie"
+                onclick="filtrerCategorie('sports')"
+            >
+                ⚽ Sports
+            </div>
+
+
+            <div
+                class="categorie"
+                onclick="filtrerCategorie('livres')"
+            >
+                📚 Livres
+            </div>
+
+
+            <div
+                class="categorie"
+                onclick="filtrerCategorie('electronique')"
+            >
+                🔌 Électronique
+            </div>
+
+
+            <div
+                class="categorie"
+                onclick="filtrerCategorie('electromenager')"
+            >
+                🍳 Électroménager
+            </div>
+
+
+            <div
+                class="categorie"
+                onclick="filtrerCategorie('auto')"
+            >
+                🚗 Auto & Moto
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PRODUITS
+    ===================================================== -->
+
+    <section class="produits">
+
+        <h2>
+            Nos produits
+        </h2>
+
+
+        <div class="grille">
+
+
+            <!-- PRODUIT 1 -->
+
+            <div
+                class="produit"
+                data-categorie="mode"
+            >
+
+                <div class="image-produit">
+
+                    <img
+                        src="image/produit1.jpg"
+                        alt="Chaussure Oassis"
+                    >
+
+                </div>
+
+                <h3>
+                    Chaussure Oassis
+                </h3>
+
+                <p class="description">
+                    Une chaussure confortable et tendance.
+                </p>
+
+                <div class="prix">
+                    10 000 FCFA
+                </div>
+
+                <button
+                    type="button"
+                    onclick="ajouterAuPanier('Chaussure Oassis', 10000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUIT 2 -->
+
+            <div
+                class="produit"
+                data-categorie="chaussures"
+            >
+
+                <div class="image-produit">
+
+                    <img
+                        src="image/produit2.jpg"
+                        alt="Vin"
+                    >
+
+                </div>
+
+                <h3>
+                    Vin
+                </h3>
+
+                <p class="description">
+                    Produit disponible sur Baby-Market.
+                </p>
+
+                <div class="prix">
+                    15 000 FCFA
+                </div>
+
+                <button
+                    type="button"
+                    onclick="ajouterAuPanier('Vin', 15000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUIT 3 -->
+
+            <div
+                class="produit"
+                data-categorie="telephones"
+            >
+
+                <div class="image-produit">
+
+                    <img
+                        src="image/produit3.jpg"
+                        alt="T-shirt"
+                    >
+
+                </div>
+
+                <h3>
+                    T-shirt
+                </h3>
+
+                <p class="description">
+                    Un t-shirt confortable et tendance.
+                </p>
+
+                <div class="prix">
+                    5 000 FCFA
+                </div>
+
+                <button
+                    type="button"
+                    onclick="ajouterAuPanier('T-shirt', 5000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUIT 4 -->
+
+            <div
+                class="produit"
+                data-categorie="informatique"
+            >
+
+                <div class="image-produit">
+
+                    <img
+                        src="image/produit4.jpg"
+                        alt="T-shirt Black"
+                    >
+
+                </div>
+
+                <h3>
+                    T-shirt Black
+                </h3>
+
+                <p class="description">
+                    Un t-shirt moderne et confortable.
+                </p>
+
+                <div class="prix">
+                    25 000 FCFA
+                </div>
+
+                <button
+                    type="button"
+                    onclick="ajouterAuPanier('T-shirt Black', 25000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUIT 5 -->
+
+            <div
+                class="produit"
+                data-categorie="electronique"
+            >
+
+                <div class="image-produit">
+
+                    <img
+                        src="image/produit5.jpg"
+                        alt="Casque Bluetooth"
+                    >
+
+                </div>
+
+                <h3>
+                    Casque Bluetooth
+                </h3>
+
+                <p class="description">
+                    Un casque sans fil pratique et confortable.
+                </p>
+
+                <div class="prix">
+                    12 000 FCFA
+                </div>
+
+                <button
+                    type="button"
+                    onclick="ajouterAuPanier('Casque Bluetooth', 12000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUIT 6 -->
+
+            <div
+                class="produit"
+                data-categorie="maison"
+            >
+
+                <div class="image-produit">
+
+                    <img
+                        src="image/produit6.jpg"
+                        alt="Sac à dos"
+                    >
+
+                </div>
+
+                <h3>
+                    Sac à dos
+                </h3>
+
+                <p class="description">
+                    Un sac pratique pour vos déplacements.
+                </p>
+
+                <div class="prix">
+                    8 000 FCFA
+                </div>
+
+                <button
+                    type="button"
+                    onclick="ajouterAuPanier('Sac à dos', 8000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUIT 7 -->
+
+            <div
+                class="produit"
+                data-categorie="mode"
+            >
+
+                <div class="image-produit">
+
+                    <img
+                        src="image/produit7.jpg"
+                        alt="Montre"
+                    >
+
+                </div>
+
+                <h3>
+                    Montre
+                </h3>
+
+                <p class="description">
+                    Une montre élégante pour tous les styles.
+                </p>
+
+                <div class="prix">
+                    18 000 FCFA
+                </div>
+
+                <button
+                    type="button"
+                    onclick="ajouterAuPanier('Montre', 18000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUIT 8 -->
+
+            <div
+                class="produit"
+                data-categorie="electronique"
+            >
+
+                <div class="image-produit">
+
+                    <img
+                        src="image/produit8.jpg"
+                        alt="Enceinte Bluetooth"
+                    >
+
+                </div>
+
+                <h3>
+                    Enceinte Bluetooth
+                </h3>
+
+                <p class="description">
+                    Une enceinte compacte avec un son puissant.
+                </p>
+
+                <div class="prix">
+                    20 000 FCFA
+                </div>
+
+                <button
+                    type="button"
+                    onclick="ajouterAuPanier('Enceinte Bluetooth', 20000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUIT 9 -->
+
+            <div
+                class="produit"
+                data-categorie="beaute"
+            >
+
+                <div class="image-produit">
+
+                    <img
+                        src="image/produit9.jpg"
+                        alt="Parfum"
+                    >
+
+                </div>
+
+                <h3>
+                    Parfum
+                </h3>
+
+                <p class="description">
+                    Un parfum élégant aux notes raffinées.
+                </p>
+
+                <div class="prix">
+                    15 000 FCFA
+                </div>
+
+                <button
+                    type="button"
+                    onclick="ajouterAuPanier('Parfum', 15000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUIT 10 -->
+
+            <div
+                class="produit"
+                data-categorie="informatique"
+            >
+
+                <div class="image-produit">
+
+                    <img
+                        src="image/produit10.jpg"
+                        alt="Clavier sans fil"
+                    >
+
+                </div>
+
+                <h3>
+                    Clavier sans fil
+                </h3>
+
+                <p class="description">
+                    Un clavier moderne et confortable.
+                </p>
+
+                <div class="prix">
+                    10 000 FCFA
+                </div>
+
+                <button
+                    type="button"
+                    onclick="ajouterAuPanier('Clavier sans fil', 10000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUIT 11 -->
+
+            <div
+                class="produit"
+                data-categorie="informatique"
+            >
+
+                <div class="image-produit">
+
+                    <img
+                        src="image/produit11.jpg"
+                        alt="Souris sans fil"
+                    >
+
+                </div>
+
+                <h3>
+                    Souris sans fil
+                </h3>
+
+                <p class="description">
+                    Une souris précise et facile à utiliser.
+                </p>
+
+                <div class="prix">
+                    7 000 FCFA
+                </div>
+
+                <button
+                    type="button"
+                    onclick="ajouterAuPanier('Souris sans fil', 7000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+
+            <!-- PRODUIT 12 -->
+
+            <div
+                class="produit"
+                data-categorie="mode"
+            >
+
+                <div class="image-produit">
+
+                    <img
+                        src="image/produit12.jpg"
+                        alt="Casquette"
+                    >
+
+                </div>
+
+                <h3>
+                    Casquette
+                </h3>
+
+                <p class="description">
+                    Une casquette tendance pour un style décontracté.
+                </p>
+
+                <div class="prix">
+                    5 000 FCFA
+                </div>
+
+                <button
+                    type="button"
+                    onclick="ajouterAuPanier('Casquette', 5000)"
+                >
+                    Ajouter au panier
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =====================================================
+             PRODUITS DES VENDEURS
+        ===================================================== -->
+
+        <div
+            id="produits-vendeurs"
+            class="grille"
+        ></div>
+
+        <!-- =====================================================
+     ESPACE VENDEUR
+===================================================== -->
+
+<div
+    id="espace-vendeur"
+    class="espace-vendeur"
+>
+
+    <div class="contenu-espace-vendeur">
+
+        <button
+            type="button"
+            class="fermer-espace-vendeur"
+            onclick="fermerEspaceVendeur()"
+        >
+            ✕
+        </button>
+
+
+        <h1>
+            🏪 Espace vendeur
+        </h1>
+
+        <p>
+            Gérez vos articles, vos ventes et vos revenus
+            depuis cet espace.
+        </p>
+
+
+        <!-- =========================
+             STATISTIQUES VENDEUR
+        ========================= -->
+
+        <section class="statistiques-vendeur">
+
+            <div class="carte-statistique">
+
+                <h3>📦 Mes articles</h3>
+
+                <strong id="nombre-mes-articles">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="carte-statistique">
+
+                <h3>🛒 Mes ventes</h3>
+
+                <strong id="nombre-mes-ventes">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="carte-statistique">
+
+                <h3>💰 Mes revenus</h3>
+
+                <strong id="revenus-vendeur">
+                    0 FCFA
+                </strong>
+
+            </div>
+
+        </section>
+    
+        <section class="actions-vendeur">
+
+            <button onclick="ajouterArticle()">
+                ➕ Ajouter un article
+            </button>
+
+            <button onclick="afficherMesArticles()">
+                📦 Mes articles
+            </button>
+
+            <button onclick="afficherVentes()">
+                🛒 Mes ventes
+            </button>
+
+        </section>
+
+
+    </div>
+
+</div>
+    
+
+
+
+<!-- =====================================================
+     ESPACE VENDEUR — AJOUTER UN ARTICLE
+===================================================== -->
+
+<div
+    id="fenetre-ajout-article"
+    class="fenetre-ajout-article"
+>
+
+    <div class="formulaire-article">
+
+        <!-- BOUTON FERMER -->
+        <button
+            type="button"
+            class="fermer-article"
+            onclick="fermerAjoutArticle()"
+        >
+            ✕
+        </button>
+
+
+        <!-- =================================================
+             EN-TÊTE
+        ================================================== -->
+
+        <div class="entete-ajout-article">
+
+            <div class="icone-ajout-article">
+                ➕
+            </div>
+
+            <div>
+
+                <h2>
+                    Ajouter un article
+                </h2>
+
+                <p>
+                    Publiez un nouvel article dans votre boutique.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             FORMULAIRE
+        ================================================== -->
+
+        <form id="form-article">
+
+
+            <!-- =================================================
+                 INFORMATIONS DE L'ARTICLE
+            ================================================== -->
+
+            <div class="section-formulaire">
+
+                <div class="titre-section-formulaire">
+
+                    <span>📦</span>
+
+                    Informations de l'article
+
+                </div>
+
+
+                <div class="grille-formulaire">
+
+
+                    <!-- NOM -->
+                    <div class="champ-formulaire">
+
+                        <label for="nom-article">
+                            Nom de l'article
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nom-article"
+                            placeholder="Ex : T-shirt homme"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PRIX -->
+                    <div class="champ-formulaire">
+
+                        <label for="prix-article">
+                            Prix
+                        </label>
+
+                        <div class="champ-prix">
+
+                            <input
+                                type="number"
+                                id="prix-article"
+                                placeholder="Ex : 10000"
+                                min="0"
+                                required
+                            >
+
+                            <span>
+                                FCFA
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CATÉGORIE -->
+                    <div class="champ-formulaire">
+
+                        <label for="categorie-article">
+                            Catégorie
+                        </label>
+
+                        <select
+                            id="categorie-article"
+                            required
+                        >
+
+                            <option value="">
+                                Choisir une catégorie
+                            </option>
+
+                            <option value="mode">
+                                👕 Mode & Vêtements
+                            </option>
+
+                            <option value="chaussures">
+                                👟 Chaussures
+                            </option>
+
+                            <option value="telephones">
+                                📱 Téléphones
+                            </option>
+
+                            <option value="informatique">
+                                💻 Informatique
+                            </option>
+
+                            <option value="maison">
+                                🏠 Maison
+                            </option>
+
+                            <option value="beaute">
+                                💄 Beauté
+                            </option>
+
+                            <option value="jeux">
+                                🎮 Jeux & Loisirs
+                            </option>
+
+                            <option value="sports">
+                                ⚽ Sports
+                            </option>
+
+                            <option value="livres">
+                                📚 Livres
+                            </option>
+
+                            <option value="electronique">
+                                🔌 Électronique
+                            </option>
+
+                            <option value="electromenager">
+                                🍳 Électroménager
+                            </option>
+
+                            <option value="auto">
+                                🚗 Auto & Moto
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- STOCK -->
+                    <div class="champ-formulaire">
+
+                        <label for="stock-article">
+                            Stock disponible
+                        </label>
+
+                        <input
+                            type="number"
+                            id="stock-article"
+                            placeholder="Ex : 20"
+                            min="1"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DESCRIPTION
+            ================================================== -->
+
+            <div class="section-formulaire">
+
+                <div class="titre-section-formulaire">
+
+                    <span>📝</span>
+
+                    Description
+
+                </div>
+
+
+                <div class="champ-formulaire">
+
+                    <label for="description-article">
+                        Description de l'article
+                    </label>
+
+                    <textarea
+                        id="description-article"
+                        placeholder="Décrivez votre article : matière, taille, couleur, caractéristiques..."
+                        rows="5"
+                        required
+                    ></textarea>
+
+
+                    <small>
+
+                        Une bonne description aide les clients
+                        à mieux connaître votre article.
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PHOTO
+            ================================================== -->
+
+            <div class="section-formulaire">
+
+                <div class="titre-section-formulaire">
+
+                    <span>🖼️</span>
+
+                    Photo de l'article
+
+                </div>
+
+
+                <div class="zone-photo">
+
+
+                    <div class="icone-image">
+
+                        📷
+
+                    </div>
+
+
+                    <p>
+
+                        <strong>
+                            Ajouter une photo
+                        </strong>
+
+                    </p>
+
+
+                    <p>
+
+                        Choisissez une image claire
+                        de votre article.
+
+                    </p>
+
+
+                    <input
+                        type="file"
+                        id="image-article"
+                        accept="image/*"
+                        required
+                    >
+
+
+                </div>
+
+
+                <small class="info-image">
+
+                    Formats acceptés :
+                    JPG, JPEG, PNG, WEBP
+
+                </small>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 BOUTONS
+            ================================================== -->
+
+            <div class="actions-formulaire">
+
+
+                <!-- ANNULER -->
+
+                <button
+                    type="button"
+                    class="btn-annuler"
+                    onclick="fermerAjoutArticle()"
+                >
+
+                    Annuler
+
+                </button>
+
+
+                <!-- PUBLIER -->
+
+                <button
+                    type="submit"
+                    class="btn-publier"
+                >
+
+                    🚀 Publier l'article
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+    <!-- =====================================================
+         FENÊTRE DE COMMANDE
+    ===================================================== -->
+
+    <div
+        id="fenetre-commande"
+        class="fenetre-commande"
+    >
+
+        <div class="formulaire-commande">
+
+
+            <button
+                class="fermer-commande"
+                type="button"
+            >
+                ✕
+            </button>
+
+
+            <h2>
+                Finaliser ma commande
+            </h2>
+
+
+            <p>
+                Veuillez renseigner vos informations de livraison.
+            </p>
+
+
+
+            <!-- RÉCAPITULATIF -->
+
+            <div id="recapitulatif-commande">
+
+                <h3>
+                    Récapitulatif de la commande
+                </h3>
+
+
+                <div id="details-commande"></div>
+
+
+                <h3 id="total-commande">
+                    Total : 0 FCFA
+                </h3>
+
+            </div>
+
+
+
+            <!-- FORMULAIRE -->
+
+            <form id="form-commande">
+
+
+                <input
+                    type="text"
+                    id="nom-commande"
+                    placeholder="Nom et prénom"
+                    required
+                >
+
+
+                <input
+                    type="tel"
+                    id="telephone-commande"
+                    placeholder="Numéro de téléphone"
+                    required
+                >
+
+
+                <input
+                    type="text"
+                    id="adresse-commande"
+                    placeholder="Adresse de livraison"
+                    required
+                >
+
+
+                <textarea
+                    id="instruction-commande"
+                    placeholder="Instructions pour la livraison (facultatif)"
+                    rows="4"
+                ></textarea>
+
+
+                <button type="submit">
+                    Confirmer la commande
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+<!-- =====================================================
+     FENÊTRE MES INFORMATIONS
+===================================================== -->
+
+<div
+    id="fenetre-informations"
+    class="fenetre-informations"
+>
+
+    <div class="formulaire-informations">
+
+        <button
+            class="fermer-informations"
+            type="button"
+        >
+            ✕
+        </button>
+
+        <h2>
+            👤 Mes informations
+        </h2>
+
+        <div id="details-informations"></div>
+
+    </div>
+
+    </div>
+
+   </section>
+
+
+<!-- =====================================================
+     FENÊTRE MES ARTICLES
+===================================================== -->
+
+<div
+    id="fenetre-mes-articles"
+    class="fenetre-mes-articles"
+>
+
+    <div class="contenu-mes-articles">
+
+        <!-- BOUTON FERMER -->
+
+        <button
+            type="button"
+            class="fermer-mes-articles"
+            onclick="fermerMesArticles()"
+        >
+            ✕
+        </button>
+
+
+        <!-- TITRE -->
+
+        <h2>
+            📦 Mes articles
+        </h2>
+
+
+        <!-- LISTE DES ARTICLES -->
+
+        <div id="liste-mes-articles"></div>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     FENÊTRE MODIFIER UN ARTICLE
+===================================================== -->
+
+<div
+    id="fenetre-modification"
+    class="fenetre-modification"
+>
+
+    <div class="formulaire-modification">
+
+        <!-- BOUTON FERMER -->
+
+        <button
+            type="button"
+            class="fermer-modification"
+            onclick="fermerModification()"
+        >
+            ✕
+        </button>
+
+
+        <!-- TITRE -->
+
+        <h2>
+            ✏️ Modifier l'article
+        </h2>
+
+
+        <!-- FORMULAIRE -->
+
+        <form id="form-modification">
+
+            <input
+                type="text"
+                id="modification-nom"
+                placeholder="Nom de l'article"
+                required
+            >
+
+
+            <input
+                type="number"
+                id="modification-prix"
+                placeholder="Prix en FCFA"
+                min="0"
+                required
+            >
+
+
+            <select
+                id="modification-categorie"
+                required
+            >
+
+                <option value="">
+                    Choisir une catégorie
+                </option>
+
+                <option value="mode">
+                    👕 Mode & Vêtements
+                </option>
+
+                <option value="chaussures">
+                    👟 Chaussures
+                </option>
+
+                <option value="telephones">
+                    📱 Téléphones
+                </option>
+
+                <option value="informatique">
+                    💻 Informatique
+                </option>
+
+                <option value="maison">
+                    🏠 Maison
+                </option>
+
+                <option value="beaute">
+                    💄 Beauté
+                </option>
+
+                <option value="jeux">
+                    🎮 Jeux & Loisirs
+                </option>
+
+                <option value="sports">
+                    ⚽ Sports
+                </option>
+
+                <option value="livres">
+                    📚 Livres
+                </option>
+
+                <option value="electronique">
+                    🔌 Électronique
+                </option>
+
+                <option value="electromenager">
+                    🍳 Électroménager
+                </option>
+
+                <option value="auto">
+                    🚗 Auto & Moto
+                </option>
+
+            </select>
+
+
+            <input
+                type="number"
+                id="modification-stock"
+                placeholder="Quantité en stock"
+                min="0"
+                required
+            >
+
+
+            <textarea
+                id="modification-description"
+                placeholder="Description de l'article"
+                rows="5"
+                required
+            ></textarea>
+
+
+            <button type="submit">
+                💾 Enregistrer les modifications
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+     FENÊTRE MES VENTES
+===================================================== -->
+
+<div
+    id="fenetre-mes-ventes"
+    class="fenetre-mes-ventes"
+>
+
+    <div class="contenu-mes-ventes">
+
+        <!-- BOUTON FERMER -->
+
+        <button
+            type="button"
+            class="fermer-mes-ventes"
+            onclick="fermerVentes()"
+        >
+            ✕
+        </button>
+
+
+        <!-- TITRE -->
+
+        <h2>
+            🛒 Mes ventes
+        </h2>
+
+
+        <!-- LISTE DES VENTES -->
+
+        <div id="liste-mes-ventes"></div>
+
+    </div>
+
+</div>
+
+   
+    <!-- =====================================================
+         FENÊTRE DE PAIEMENT
+    ===================================================== -->
+
+    <div
+        id="fenetre-paiement"
+        class="fenetre-paiement"
+    >
+
+        <div class="formulaire-paiement">
+
+
+            <button
+                class="fermer-paiement"
+                type="button"
+            >
+                ✕
+            </button>
+
+
+            <h2>
+                Choisir le paiement
+            </h2>
+
+
+            <p>
+                Comment souhaitez-vous payer ?
+            </p>
+
+
+            <div class="modes-paiement">
+
+
+                <button
+                    type="button"
+                    onclick="choisirPaiement('wave')"
+                >
+                    🟦 Wave
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="choisirPaiement('orange')"
+                >
+                    🟠 Orange Money
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="choisirPaiement('mtn')"
+                >
+                    🟡 MTN MoMo
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="choisirPaiement('moov')"
+                >
+                    🟢 Moov Money
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="choisirPaiement('livraison')"
+                >
+                    💵 Paiement à la livraison
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PAIEMENT WAVE
+    ===================================================== -->
+
+    <div
+        id="fenetre-wave"
+        class="fenetre-wave"
+    >
+
+        <div class="formulaire-wave">
+
+
+            <button
+                class="fermer-wave"
+                type="button"
+            >
+                ✕
+            </button>
+
+
+            <h2>
+                🟦 Paiement Wave
+            </h2>
+
+
+            <p>
+                Montant à payer
+            </p>
+
+
+            <h3 id="montant-wave">
+                0 FCFA
+            </h3>
+
+
+            <form id="form-wave">
+
+
+                <input
+                    type="tel"
+                    id="telephone-wave"
+                    placeholder="Numéro Wave"
+                    required
+                >
+
+
+                <button type="submit">
+                    Continuer
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PAIEMENT ORANGE MONEY
+    ===================================================== -->
+
+    <div
+        id="fenetre-orange"
+        class="fenetre-orange"
+    >
+
+        <div class="formulaire-orange">
+
+
+            <button
+                class="fermer-orange"
+                type="button"
+            >
+                ✕
+            </button>
+
+
+            <h2>
+                🟠 Paiement Orange Money
+            </h2>
+
+
+            <p>
+                Montant à payer
+            </p>
+
+
+            <h3 id="montant-orange">
+                0 FCFA
+            </h3>
+
+
+            <form id="form-orange">
+
+
+                <input
+                    type="tel"
+                    id="telephone-orange"
+                    placeholder="Numéro Orange Money"
+                    required
+                >
+
+
+                <button type="submit">
+                    Continuer
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PAIEMENT MTN MOMO
+    ===================================================== -->
+
+    <div
+        id="fenetre-mtn"
+        class="fenetre-mtn"
+    >
+
+        <div class="formulaire-mtn">
+
+
+            <button
+                class="fermer-mtn"
+                type="button"
+            >
+                ✕
+            </button>
+
+
+            <h2>
+                🟡 Paiement MTN MoMo
+            </h2>
+
+
+            <p>
+                Montant à payer
+            </p>
+
+
+            <h3 id="montant-mtn">
+                0 FCFA
+            </h3>
+
+
+            <form id="form-mtn">
+
+
+                <input
+                    type="tel"
+                    id="telephone-mtn"
+                    placeholder="Numéro MTN MoMo"
+                    required
+                >
+
+
+                <button type="submit">
+                    Continuer
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PAIEMENT MOOV MONEY
+    ===================================================== -->
+
+    <div
+        id="fenetre-moov"
+        class="fenetre-moov"
+    >
+
+        <div class="formulaire-moov">
+
+
+            <button
+                class="fermer-moov"
+                type="button"
+            >
+                ✕
+            </button>
+
+
+            <h2>
+                🟢 Paiement Moov Money
+            </h2>
+
+
+            <p>
+                Montant à payer
+            </p>
+
+
+            <h3 id="montant-moov">
+                0 FCFA
+            </h3>
+
+
+            <form id="form-moov">
+
+
+                <input
+                    type="tel"
+                    id="telephone-moov"
+                    placeholder="Numéro Moov Money"
+                    required
+                >
+
+
+                <button type="submit">
+                    Continuer
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PAIEMENT À LA LIVRAISON
+    ===================================================== -->
+
+    <div
+        id="fenetre-livraison"
+        class="fenetre-livraison"
+    >
+
+        <div class="formulaire-livraison">
+
+
+            <button
+                class="fermer-livraison"
+                type="button"
+            >
+                ✕
+            </button>
+
+
+            <h2>
+                📦 Paiement à la livraison
+            </h2>
+
+
+            <p>
+                Vous avez choisi le paiement à la livraison.
+            </p>
+
+
+            <h3 id="montant-livraison">
+                0 FCFA
+            </h3>
+
+
+            <button
+                id="confirmer-livraison"
+                type="button"
+            >
+                Confirmer la commande
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MES COMMANDES
+    ===================================================== -->
+
+    <div
+        id="fenetre-commandes"
+        class="fenetre-commandes"
+    >
+
+        <div class="contenu-commandes">
+
+
+            <button
+                type="button"
+                class="fermer-commandes"
+                onclick="fermerMesCommandes()"
+            >
+                ✕
+            </button>
+
+
+            <h2>
+                📦 Mes commandes
+            </h2>
+
+
+            <div id="liste-commandes"></div>
+
+
+        </div>
+
+    </div>
+
+<!-- =========================
+     FENÊTRE D'INSCRIPTION
+========================= -->
+
+<div
+    id="fenetre-inscription"
+    class="fenetre-inscription"
+>
+
+
+<div class="formulaire-inscription">
+
+    <button
+        type="button"
+        class="fermer-inscription"
+    >
+        ✕
+    </button>
+
+    <h2>👤 Créer mon compte</h2>
+
+    <form id="form-inscription">
+
+        <label for="nom-inscription">
+            Nom
+        </label>
+
+        <input
+            type="text"
+            id="nom-inscription"
+            placeholder="Votre nom"
+            required
+        >
+
+        <label for="email-inscription">
+            Email
+        </label>
+
+        <input
+            type="email"
+            id="email-inscription"
+            placeholder="Votre adresse email"
+            required
+        >
+
+        <label for="telephone-inscription">
+            Téléphone
+        </label>
+
+        <input
+            type="tel"
+            id="telephone-inscription"
+            placeholder="Votre numéro de téléphone"
+            required
+        >
+
+        <label for="mot-de-passe-inscription">
+            Mot de passe
+        </label>
+
+        <input
+            type="password"
+            id="mot-de-passe-inscription"
+            placeholder="Créer un mot de passe"
+            required
+        >
+
+        <button
+            type="submit"
+        >
+            S'inscrire
+        </button>
+
+    </form>
+
+</div>
+
+
+</div>
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

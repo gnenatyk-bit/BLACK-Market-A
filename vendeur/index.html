@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BLACK-Market A — Espace vendeur</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =========================
+         EN-TÊTE VENDEUR
+    ========================= -->
+
+    <header class="header-vendeur">
+
+        <div class="logo-vendeur">
+            BLACK-Market A
+        </div>
+
+        <div class="titre-vendeur">
+            🏪 Espace vendeur
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         TABLEAU DE BORD
+    ========================= -->
+
+    <main class="tableau-vendeur">
+
+        <h1>
+            Bienvenue dans votre espace vendeur
+        </h1>
+
+        <p>
+            Gérez vos articles, vos ventes et vos revenus
+            depuis cet espace.
+        </p>
+
+
+        <!-- =========================
+             STATISTIQUES
+        ========================= -->
+
+        <section class="statistiques-vendeur">
+
+            <div class="carte-statistique">
+
+                <h3>📦 Mes articles</h3>
+
+                <strong>0</strong>
+
+            </div>
+
+
+            <div class="carte-statistique">
+
+                <h3>🛒 Mes ventes</h3>
+
+                <strong>0</strong>
+
+            </div>
+
+
+            <div class="carte-statistique">
+
+                <h3>💰 Mes revenus</h3>
+
+                <strong>0 FCFA</strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+     ACTIONS
+========================= -->
+
+<section class="actions-vendeur">
+
+    <button
+        type="button"
+        onclick="ajouterArticle()"
+    >
+        ➕ Ajouter un article
+    </button>
+
+     <button
+       type="button"
+      onclick="afficherMesArticles()"
+    >
+      📦 Mes articles
+     </button>
+
+    <button type="button" onclick="afficherVentes()">
+    🛒 Mes ventes
+    </button>
+
+</section>
+
+</main>
+
+<!-- =========================
+     FENÊTRE AJOUTER UN ARTICLE
+========================= -->
+
+<div id="fenetre-ajout-article" class="fenetre-ajout-article">
+
+    <div class="formulaire-article">
+
+        <button
+            type="button"
+            class="fermer-article"
+            onclick="fermerAjoutArticle()"
+        >
+            ✕
+        </button>
+
+        <h2>➕ Ajouter un article</h2>
+
+        <form id="form-article">
+
+            <input
+                type="text"
+                id="nom-article"
+                placeholder="Nom de l'article"
+                required
+            >
+
+            <input
+                type="number"
+                id="prix-article"
+                placeholder="Prix en FCFA"
+                min="0"
+                required
+            >
+
+            <select id="categorie-article" required>
+
+                <option value="">
+                    Choisir une catégorie
+                </option>
+
+                <option value="mode">
+                    👕 Mode & Vêtements
+                </option>
+
+                <option value="chaussures">
+                    👟 Chaussures
+                </option>
+
+                <option value="telephones">
+                    📱 Téléphones
+                </option>
+
+                <option value="informatique">
+                    💻 Informatique
+                </option>
+
+                <option value="maison">
+                    🏠 Maison
+                </option>
+
+                <option value="beaute">
+                    💄 Beauté
+                </option>
+
+                <option value="jeux">
+                    🎮 Jeux & Loisirs
+                </option>
+
+                <option value="sports">
+                    ⚽ Sports
+                </option>
+
+                <option value="livres">
+                    📚 Livres
+                </option>
+
+                <option value="electronique">
+                    🔌 Électronique
+                </option>
+
+                <option value="electromenager">
+                    🍳 Électroménager
+                </option>
+
+                <option value="auto">
+                    🚗 Auto & Moto
+                </option>
+
+            </select>
+
+            <input
+                type="number"
+                id="stock-article"
+                placeholder="Quantité en stock"
+                min="1"
+                required
+            >
+
+            <textarea
+                id="description-article"
+                placeholder="Description de l'article"
+                rows="5"
+                required
+            ></textarea>
+
+            <input
+                type="file"
+                id="image-article"
+                accept="image/*"
+                required
+            >
+
+            <button type="submit">
+                Publier l'article
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     FENÊTRE MES ARTICLES
+========================= -->
+
+<div
+    id="fenetre-mes-articles"
+    class="fenetre-mes-articles"
+>
+
+    <div class="contenu-mes-articles">
+
+        <button
+            type="button"
+            class="fermer-mes-articles"
+            onclick="fermerMesArticles()"
+        >
+            ✕
+        </button>
+
+        <h2>📦 Mes articles</h2>
+
+        <div id="liste-mes-articles"></div>
+
+    </div>
+
+</div>
+<!-- =========================
+     FENÊTRE MODIFIER ARTICLE
+========================= -->
+
+<div id="fenetre-modification" class="fenetre-modification">
+
+    <div class="formulaire-modification">
+
+        <button
+            type="button"
+            class="fermer-modification"
+            onclick="fermerModification()"
+        >
+            ✕
+        </button>
+
+        <h2>✏️ Modifier l'article</h2>
+
+        <form id="form-modification">
+
+            <input
+                type="text"
+                id="modification-nom"
+                placeholder="Nom de l'article"
+                required
+            >
+
+            <input
+                type="number"
+                id="modification-prix"
+                placeholder="Prix en FCFA"
+                min="0"
+                required
+            >
+
+            <select
+                id="modification-categorie"
+                required
+            >
+
+                <option value="">
+                    Choisir une catégorie
+                </option>
+
+                <option value="mode">
+                    👕 Mode & Vêtements
+                </option>
+
+                <option value="chaussures">
+                    👟 Chaussures
+                </option>
+
+                <option value="telephones">
+                    📱 Téléphones
+                </option>
+
+                <option value="informatique">
+                    💻 Informatique
+                </option>
+
+                <option value="maison">
+                    🏠 Maison
+                </option>
+
+                <option value="beaute">
+                    💄 Beauté
+                </option>
+
+                <option value="jeux">
+                    🎮 Jeux & Loisirs
+                </option>
+
+                <option value="sports">
+                    ⚽ Sports
+                </option>
+
+                <option value="livres">
+                    📚 Livres
+                </option>
+
+                <option value="electronique">
+                    🔌 Électronique
+                </option>
+
+                <option value="electromenager">
+                    🍳 Électroménager
+                </option>
+
+                <option value="auto">
+                    🚗 Auto & Moto
+                </option>
+
+            </select>
+
+            <input
+                type="number"
+                id="modification-stock"
+                placeholder="Quantité en stock"
+                min="0"
+                required
+            >
+
+            <textarea
+                id="modification-description"
+                placeholder="Description de l'article"
+                rows="5"
+                required
+            ></textarea>
+
+            <button type="submit">
+                💾 Enregistrer les modifications
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- =========================
+     FENÊTRE MES VENTES
+========================= -->
+
+<div
+    id="fenetre-mes-ventes"
+    class="fenetre-mes-ventes"
+>
+
+    <div class="contenu-mes-ventes">
+
+        <button
+            type="button"
+            class="fermer-mes-ventes"
+            onclick="fermerVentes()"
+        >
+            ✕
+        </button>
+
+        <h2>🛒 Mes ventes</h2>
+
+        <div id="liste-mes-ventes"></div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
