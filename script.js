@@ -3258,50 +3258,40 @@ document.addEventListener(
                          )?.value;
 
 
-                    if (
-                          !prenom
-                          || !nom
-                          || !email
-                          || !telephone
-                          || !commune
-                          || !adresse
-                          || !motDePasse
-                          || !confirmationMotDePasse
-                     ) {
-                       
-                       if (motDePasse !== confirmationMotDePasse) {
+if (
+    !prenom
+    || !nom
+    || !email
+    || !telephone
+    || !commune
+    || !adresse
+    || !motDePasse
+    || !confirmationMotDePasse
+) {
+    alert(
+        "❌ Veuillez remplir tous les champs."
+    );
+    return;
+}
 
-                          alert(
-                              "❌ Les deux mots de passe ne correspondent pas."
-                          );
-
-                          return;
-                        }
-
-                        alert(
-                            "❌ Veuillez remplir tous les champs."
-                        );
-
-                        return;
-
-                    }
-
+if (motDePasse !== confirmationMotDePasse) {
+    alert(
+        "❌ Les deux mots de passe ne correspondent pas."
+    );
+    return;
+}
 
                     localStorage.setItem(
-                        "utilisateur",
-                        JSON.stringify({
-
-                            {
-                               prenom: prenom,
-                               nom: nom,
-                               email: email,
-                               telephone: telephone,
-                               commune: commune,
-                               adresse: adresse
-                            }
-
-                        })
-                    );
+    "utilisateur",
+    JSON.stringify({
+        prenom: prenom,
+        nom: nom,
+        email: email,
+        telephone: telephone,
+        commune: commune,
+        adresse: adresse
+    })
+);
 
 
                     afficherNomClient();
