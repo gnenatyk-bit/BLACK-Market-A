@@ -9,7 +9,7 @@
     <title>BLACK-market</title>
 
     <style>
-
+https://github.com/gnenatyk-bit/BLACK-Market-A/edit/main/index.html
         * {
             margin: 0;
             padding: 0;
@@ -5975,6 +5975,102 @@
         width: 94% !important;
         max-width: 400px;
         border-radius: 12px !important;
+    }
+
+}
+        /* =====================================================
+   MES INFORMATIONS — TITRE
+===================================================== */
+
+#fenetre-informations h2 {
+    color: #d4af37;
+    font-size: 22px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+@media (max-width: 500px) {
+
+    #fenetre-informations h2 {
+        font-size: 19px;
+        margin-bottom: 15px;
+    }
+
+}
+        /* =====================================================
+   MES INFORMATIONS — CHAMPS
+===================================================== */
+
+#fenetre-informations input,
+#fenetre-informations textarea {
+    width: 100%;
+    padding: 11px 12px;
+    margin-bottom: 10px;
+
+    background: #1c1c1c;
+    color: white;
+
+    border: 1px solid #444;
+    border-radius: 8px;
+
+    font-size: 14px;
+    outline: none;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#fenetre-informations input:focus,
+#fenetre-informations textarea:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.15);
+}
+
+#fenetre-informations input::placeholder,
+#fenetre-informations textarea::placeholder {
+    color: #999;
+}
+
+@media (max-width: 500px) {
+
+    #fenetre-informations input,
+    #fenetre-informations textarea {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+}
+        /* =====================================================
+   MES INFORMATIONS — BOUTONS
+===================================================== */
+
+#fenetre-informations button {
+    padding: 11px 16px;
+    border-radius: 8px;
+    border: 1px solid #d4af37;
+    background: #111;
+    color: #d4af37;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#fenetre-informations button:hover {
+    background: #d4af37;
+    color: #111;
+}
+
+#fenetre-informations button:active {
+    transform: scale(0.96);
+}
+
+@media (max-width: 500px) {
+
+    #fenetre-informations button {
+        width: 100%;
+        padding: 10px;
+        font-size: 13px;
     }
 
 }
