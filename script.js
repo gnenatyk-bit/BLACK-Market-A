@@ -1283,16 +1283,7 @@ function creerCommande() {
         document.getElementById(
             "telephone-commande"
         )?.value.trim();
-    const commune =
-         document.getElementById(
-            "commune-inscription"
-        )?.value;
-    const adresse =
-          document.getElementById(
-            "adresse-inscription"
-        )?.value.trim();
-
-
+   
     const adresse =
         document.getElementById(
             "adresse-commande"
