@@ -5686,6 +5686,81 @@
     }
 
 }
+        /* =====================================================
+   MOBILE — BOUTON AJOUTER AU PANIER
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .produit button {
+        width: 100%;
+        background: #111;
+        color: #d4af37;
+        border: 1px solid #d4af37;
+        font-weight: 800;
+        transition: all 0.2s ease;
+    }
+
+    .produit button:hover {
+        background: #d4af37;
+        color: #111;
+    }
+
+    .produit button:active {
+        transform: scale(0.96);
+    }
+
+}
+        /* =====================================================
+   MOBILE — ALIGNEMENT DES CARTES PRODUITS
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .produit {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .produit .prix {
+        margin-top: auto;
+    }
+
+}
+        /* =====================================================
+   MOBILE — BADGE NOUVEAU
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .badge-produit {
+        padding: 4px 6px;
+        font-size: 10px;
+        font-weight: 900;
+        border-radius: 5px;
+        letter-spacing: 0.3px;
+    }
+
+}
+        /* =====================================================
+   MOBILE — IMAGES PRODUITS
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .image-produit {
+        height: 140px;
+        margin-bottom: 8px;
+    }
+
+    .image-produit img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+}
+        
         
         
         
