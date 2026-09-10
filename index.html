@@ -5517,6 +5517,64 @@
     }
 
 }
+        /* =====================================================
+   NAVIGATION MOBILE
+===================================================== */
+
+.navigation-mobile {
+    display: none;
+}
+
+@media (max-width: 500px) {
+
+    .navigation-mobile {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 62px;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        background: #111;
+        border-top: 2px solid #d4af37;
+
+        z-index: 9999;
+        box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    .navigation-mobile button {
+        flex: 1;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 3px;
+
+        border: none;
+        background: transparent;
+        color: white;
+
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .navigation-mobile button span {
+        font-size: 10px;
+        font-weight: bold;
+        color: #d4af37;
+    }
+
+    .navigation-mobile button:active {
+        transform: scale(0.92);
+    }
+
+}
         
         
         
@@ -7577,7 +7635,34 @@
 
     <script src="script.js"></script>
 
+<!-- =====================================================
+     NAVIGATION MOBILE
+===================================================== -->
 
+<nav class="navigation-mobile">
+
+    <button type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        🏠
+        <span>Accueil</span>
+    </button>
+
+    <button type="button" onclick="document.querySelector('.categories').scrollIntoView({behavior: 'smooth'})">
+        📂
+        <span>Catégories</span>
+    </button>
+
+    <button type="button" onclick="afficherMasquerPanier()">
+        🛒
+        <span>Panier</span>
+    </button>
+
+    <button type="button" onclick="document.getElementById('bouton-compte').click()">
+        👤
+        <span>Compte</span>
+    </button>
+
+</nav>
+    
 </body>
 
 </html>
