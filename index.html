@@ -5905,6 +5905,79 @@
     }
 
 }
+        /* =====================================================
+   MENU COMPTE — ICÔNES ET ESPACEMENT
+===================================================== */
+
+#menuCompte button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#menuCompte button:first-child {
+    color: #d4af37;
+}
+
+#menuCompte button:nth-child(2) {
+    color: white;
+}
+
+#menuCompte button:last-child {
+    color: #e0e0e0;
+}
+
+@media (max-width: 500px) {
+
+    #menuCompte button {
+        min-height: 44px;
+        gap: 9px;
+    }
+
+}
+        /* =====================================================
+   MENU COMPTE — SÉPARATION
+===================================================== */
+
+#menuCompte button:nth-child(2) {
+    margin-bottom: 5px;
+}
+
+#menuCompte button:last-child {
+    border-top: 1px solid #444;
+    margin-top: 5px;
+    padding-top: 13px;
+}
+
+@media (max-width: 500px) {
+
+    #menuCompte button:last-child {
+        margin-top: 4px;
+        padding-top: 12px;
+    }
+
+}
+        /* =====================================================
+   MES INFORMATIONS — FENÊTRE CHIC
+===================================================== */
+
+#fenetre-informations {
+    background: #111 !important;
+    border: 1px solid #d4af37 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35) !important;
+    overflow: hidden;
+}
+
+@media (max-width: 500px) {
+
+    #fenetre-informations {
+        width: 94% !important;
+        max-width: 400px;
+        border-radius: 12px !important;
+    }
+
+}
         
         
         
