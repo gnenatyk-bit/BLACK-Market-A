@@ -4,7 +4,6 @@
    SCRIPT.JS
 ===================================================== */
 
-
 /* =====================================================
    1. VARIABLES
 ===================================================== */
@@ -3231,14 +3230,28 @@ document.addEventListener(
                         document.getElementById(
                             "mot-de-passe-inscription"
                         )?.value;
+                   
+                   const confirmationMotDePasse =
+                         document.getElementById(
+                         "confirmation-mot-de-passe"
+                         )?.value;
 
 
                     if (
-                        !nom
-                        || !email
-                        || !telephone
-                        || !motDePasse
-                    ) {
+                         !nom
+                         || !email
+                         || !telephone
+                         || !motDePasse
+                         || !confirmationMotDePasse
+                     ) {
+                       if (motDePasse !== confirmationMotDePasse) {
+
+                          alert(
+                              "❌ Les deux mots de passe ne correspondent pas."
+                          );
+
+                          return;
+                        }
 
                         alert(
                             "❌ Veuillez remplir tous les champs."
