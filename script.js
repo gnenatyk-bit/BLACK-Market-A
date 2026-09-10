@@ -3236,6 +3236,15 @@ document.addEventListener(
                         document.getElementById(
                             "telephone-inscription"
                         )?.value.trim();
+                    const commune =
+                         document.getElementById(
+                              "commune-inscription"
+                        )?.value;
+
+                    const adresse =
+                          document.getElementById(
+                              "adresse-inscription"
+                         )?.value.trim();
 
 
                     const motDePasse =
@@ -3250,15 +3259,16 @@ document.addEventListener(
 
 
                     if (
-                         !prenom
-                         !nom
-                         || !email
-                         || !telephone
-                         || !commune
-                         || !adresse
-                         || !motDePasse
-                         || !confirmationMotDePasse
+                          !prenom
+                          || !nom
+                          || !email
+                          || !telephone
+                          || !commune
+                          || !adresse
+                          || !motDePasse
+                          || !confirmationMotDePasse
                      ) {
+                       
                        if (motDePasse !== confirmationMotDePasse) {
 
                           alert(
