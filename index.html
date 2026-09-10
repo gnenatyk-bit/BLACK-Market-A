@@ -6075,10 +6075,10 @@ https://github.com/gnenatyk-bit/BLACK-Market-A/edit/main/index.html
 
 }
         /* =====================================================
-   MES INFORMATIONS — CROIX DE FERMETURE
+   MES INFORMATIONS — CROIX CHIC
 ===================================================== */
 
-#fenetre-informations .fermer {
+#fenetre-informations .fermer-informations {
     width: 36px;
     height: 36px;
 
@@ -6092,28 +6092,63 @@ https://github.com/gnenatyk-bit/BLACK-Market-A/edit/main/index.html
     border: 1px solid #d4af37;
     border-radius: 50%;
 
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 700;
 
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
 }
 
-#fenetre-informations .fermer:hover {
+#fenetre-informations .fermer-informations:hover {
     background: #d4af37;
     color: #111;
     transform: rotate(90deg);
 }
 
-#fenetre-informations .fermer:active {
+#fenetre-informations .fermer-informations:active {
     transform: rotate(90deg) scale(0.9);
 }
-        
-        
-        
-        
-        
+        /* =====================================================
+   MES INFORMATIONS — POSITION CROIX
+===================================================== */
 
+#fenetre-informations .formulaire-informations {
+    position: relative;
+}
+
+#fenetre-informations .fermer-informations {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    margin: 0;
+}
+
+@media (max-width: 500px) {
+
+    #fenetre-informations .fermer-informations {
+        top: 10px;
+        right: 10px;
+    }
+
+}
+        /* =====================================================
+   MES INFORMATIONS — ESPACE DU TITRE
+===================================================== */
+
+#fenetre-informations h2 {
+    padding: 0 45px;
+}
+
+@media (max-width: 500px) {
+
+    #fenetre-informations h2 {
+        padding: 0 40px;
+    }
+
+}
+
+        
+       
     </style>
 
 </head>
