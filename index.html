@@ -6416,28 +6416,61 @@ https://github.com/gnenatyk-bit/BLACK-Market-A/edit/main/index.html
 
 }
         
-        /* =========================
+       
+/* =========================
    ESPACE VENDEUR — MOBILE
 ========================= */
 
 @media (max-width: 500px) {
 
-    .fenetre-vendeur {
-        width: 94%;
-        max-width: 94%;
-        margin: 0 auto;
-        padding: 20px 15px;
+    .espace-vendeur {
+        width: 100%;
+        padding: 8px;
         overflow-x: hidden;
     }
 
-    .fenetre-vendeur * {
+    .contenu-espace-vendeur {
+        width: 100%;
+        max-width: 100%;
+        padding: 18px 12px;
+        margin: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .contenu-espace-vendeur > p {
+        width: 100%;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    .statistiques-vendeur {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .carte-statistique {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .actions-vendeur {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .actions-vendeur button {
+        width: 100%;
         max-width: 100%;
         box-sizing: border-box;
     }
 
 }
-        
-
         
        
     </style>
