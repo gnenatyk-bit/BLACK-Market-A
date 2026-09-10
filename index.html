@@ -6531,6 +6531,62 @@ https://github.com/gnenatyk-bit/BLACK-Market-A/edit/main/index.html
     }
 
 }
+            details.innerHTML = `
+
+        <div class="information-client">
+            <p>
+               <strong>Prénom :</strong>
+               ${utilisateur.prenom || ""}
+            </p>
+
+            <p>
+                <strong>Nom :</strong>
+                ${utilisateur.nom || ""}
+            </p>
+
+            <p>
+                <strong>Email :</strong>
+                ${utilisateur.email || ""}
+            </p>
+
+            <p>
+                <strong>Téléphone :</strong>
+                ${utilisateur.telephone || ""}
+            </p>
+            
+            <p>
+                  <strong>Commune :</strong>
+                  ${utilisateur.commune || ""}
+            </p>
+            
+            <p>
+                 <strong>Adresse de livraison :</strong>
+                 ${utilisateur.adresse || ""}
+            </p>
+
+        </div>
+
+    `;
+
+
+    fenetre.style.display = "flex";
+
+
+    const menu =
+        document.getElementById(
+            "menu-compte"
+        );
+
+
+    if (menu) {
+
+        menu.style.display = "none";
+
+    }
+
+}
+
+
          
        
     </style>
