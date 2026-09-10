@@ -3216,6 +3216,10 @@ document.addEventListener(
                         document.getElementById(
                             "nom-inscription"
                         )?.value.trim();
+                   const prenom =
+                            document.getElementById(
+                            "prenom-inscription"
+                        )?.value.trim();
 
 
                     const email =
@@ -3242,6 +3246,7 @@ document.addEventListener(
 
 
                     if (
+                         !prenom
                          !nom
                          || !email
                          || !telephone
