@@ -1283,6 +1283,10 @@ function creerCommande() {
         document.getElementById(
             "telephone-commande"
         )?.value.trim();
+    const commune =
+         document.getElementById(
+            "commune-inscription"
+        )?.value;
 
 
     const adresse =
@@ -3241,6 +3245,7 @@ document.addEventListener(
                          !nom
                          || !email
                          || !telephone
+                         || !commune
                          || !motDePasse
                          || !confirmationMotDePasse
                      ) {
@@ -3266,11 +3271,12 @@ document.addEventListener(
                         "utilisateur",
                         JSON.stringify({
 
-                            nom: nom,
-
-                            email: email,
-
-                            telephone: telephone
+                            {
+                              nom: nom,
+                              email: email,
+                              telephone: telephone,
+                              commune: commune
+                            }
 
                         })
                     );
