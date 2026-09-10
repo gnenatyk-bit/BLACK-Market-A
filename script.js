@@ -946,6 +946,10 @@ function afficherInformationsClient() {
     details.innerHTML = `
 
         <div class="information-client">
+            <p>
+               <strong>Prénom :</strong>
+               ${utilisateur.prenom || ""}
+            </p>
 
             <p>
                 <strong>Nom :</strong>
@@ -960,6 +964,16 @@ function afficherInformationsClient() {
             <p>
                 <strong>Téléphone :</strong>
                 ${utilisateur.telephone || ""}
+            </p>
+            
+            <p>
+                  <strong>Commune :</strong>
+                  ${utilisateur.commune || ""}
+            </p>
+            
+            <p>
+                 <strong>Adresse de livraison :</strong>
+                 ${utilisateur.adresse || ""}
             </p>
 
         </div>
