@@ -5624,6 +5624,68 @@
     }
 
 }
+        /* =====================================================
+   BADGE — PROMOTION
+===================================================== */
+
+.badge-promotion {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 3;
+
+    background: #111;
+    color: #d4af37;
+
+    padding: 5px 8px;
+    border-radius: 6px;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.20);
+}
+
+@media (max-width: 500px) {
+
+    .badge-promotion {
+        top: 6px;
+        right: 6px;
+        padding: 4px 6px;
+        font-size: 10px;
+        border-radius: 5px;
+    }
+
+}
+        /* =====================================================
+   PRIX — ANCIEN PRIX / PRIX PROMOTIONNEL
+===================================================== */
+
+.ancien-prix {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 12px;
+    margin-right: 6px;
+}
+
+.prix-promotion {
+    color: #111;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+@media (max-width: 500px) {
+
+    .ancien-prix {
+        font-size: 10px;
+        margin-right: 4px;
+    }
+
+    .prix-promotion {
+        font-size: 16px;
+    }
+
+}
         
         
         
@@ -5934,14 +5996,12 @@
                 data-categorie="mode"
             >
 
-        <div class="image-produit">
-              <span class="badge-produit">NOUVEAU</span>
+       <div class="image-produit">
+                  <span class="badge-produit">NOUVEAU</span>
+                  <span class="badge-promotion">−20%</span>
 
-              <img
-                 src="image/produit1.jpg"
-                  alt="Chaussure Oassis"
-                >
-            </div>
+                  <img src="image/produit1.jpg" alt="Chaussure Oassis">
+        </div>
 
                 <h3>
                     Chaussure Oassis
@@ -5952,8 +6012,9 @@
                 </p>
 
                 <div class="prix">
-                    10 000 FCFA
-                </div>
+                 <span class="ancien-prix">12 500 FCFA</span>
+                 <span class="prix-promotion">10 000 FCFA</span>
+               </div>
 
                 <button
                     type="button"
