@@ -5106,6 +5106,30 @@
     letter-spacing: 0.3px;
     text-transform: uppercase;
 }
+        /* =====================================================
+   MOBILE — CATÉGORIES COMPACTES
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .liste-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .categorie {
+        padding: 12px 8px;
+        font-size: 13px;
+        min-height: 50px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+}
+        
         
         
 
