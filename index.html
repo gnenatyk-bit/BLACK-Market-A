@@ -1104,112 +1104,155 @@ https://github.com/gnenatyk-bit/BLACK-Market-A/edit/main/index.html
 
 
         /* =====================================================
-           ORANGE MONEY
-        ===================================================== */
+   ORANGE MONEY
+===================================================== */
 
-        .fenetre-orange {
-            z-index: 12000;
-        }
+.fenetre-orange {
+    z-index: 12000;
+}
 
-        .formulaire-orange {
+.formulaire-orange {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+}
 
-            position: relative;
+.formulaire-orange h2 {
+    margin: 5px 0 15px;
+    color: #111;
+    font-size: 23px;
+    font-weight: 800;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #ff7900;
+}
 
-            width: 90%;
+.formulaire-orange p {
+    color: #666;
+    margin: 18px 0 8px;
+    font-size: 14px;
+}
 
-            max-width: 400px;
+#montant-orange {
+    font-size: 26px;
+    color: #ff7900;
+    margin: 0 0 25px;
+    font-weight: 800;
+}
 
-            background: white;
+#form-orange {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
-            padding: 30px;
+#form-orange input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
 
-            border-radius: 15px;
+#form-orange input:focus {
+    border-color: #ff7900;
+    box-shadow: 0 0 0 3px rgba(255, 121, 0, 0.12);
+}
 
-            text-align: center;
-        }
+#form-orange button {
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background-color: #ff7900;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
 
-        .formulaire-orange h2 {
+#form-orange button:hover {
+    background-color: #e66d00;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(255, 121, 0, 0.25);
+}
 
-            margin-bottom: 15px;
-        }
+#form-orange button:active {
+    transform: scale(0.98);
+}
 
-        .formulaire-orange p {
+.fermer-orange {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #111;
+    color: #ff7900;
+    font-size: 19px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
 
-            color: #666;
+.fermer-orange:hover {
+    background: #ff7900;
+    color: white;
+    transform: rotate(90deg) scale(1.08);
+}
 
-            margin-bottom: 8px;
-        }
 
-        #montant-orange {
+/* =====================================================
+   ORANGE MONEY — MOBILE
+===================================================== */
 
-            font-size: 24px;
+@media (max-width: 500px) {
 
-            margin-bottom: 25px;
-        }
+    .formulaire-orange {
+        width: 94%;
+        max-width: 380px;
+        padding: 25px 15px 20px;
+        border-radius: 18px;
+    }
 
-        #form-orange {
+    .formulaire-orange h2 {
+        font-size: 21px;
+    }
 
-            display: flex;
+    #montant-orange {
+        font-size: 23px;
+        margin-bottom: 20px;
+    }
 
-            flex-direction: column;
+    #form-orange input {
+        padding: 12px;
+        font-size: 14px;
+    }
 
-            gap: 12px;
-        }
+    #form-orange button {
+        padding: 13px;
+        font-size: 14px;
+    }
 
-        #form-orange input {
-
-            width: 100%;
-
-            padding: 13px;
-
-            border: 1px solid #ddd;
-
-            border-radius: 8px;
-
-            font-size: 15px;
-
-            outline: none;
-        }
-
-        #form-orange input:focus {
-
-            border-color: #ff7900;
-        }
-
-        #form-orange button {
-
-            padding: 13px;
-
-            border: none;
-
-            border-radius: 8px;
-
-            background-color: #ff7900;
-
-            color: white;
-
-            font-weight: bold;
-
-            font-size: 15px;
-
-            cursor: pointer;
-        }
-
-        .fermer-orange {
-
-            position: absolute;
-
-            top: 10px;
-            right: 10px;
-
-            border: none;
-
-            background: none;
-
-            font-size: 20px;
-
-            cursor: pointer;
-        }
+    .fermer-orange {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+    }
+}
 
 
         /* =====================================================
