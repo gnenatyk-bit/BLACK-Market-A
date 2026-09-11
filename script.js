@@ -1165,6 +1165,59 @@ function afficherMesCommandes() {
 
 }
 
+function annulerCommande(idCommande) {
+
+    const confirmation =
+        confirm(
+            "⚠️ Voulez-vous vraiment annuler cette commande ?"
+        );
+
+    if (!confirmation) return;
+
+
+    let commandes =
+        JSON.parse(
+            localStorage.getItem("commandes")
+        ) || [];
+
+
+    const index =
+        commandes.findIndex(
+            function(commande) {
+                return commande.id === idCommande;
+            }
+        );
+
+
+    if (index === -1) {
+        alert("❌ Commande introuvable.");
+        return;
+    }
+
+
+    if (commandes[index].statut !== "En attente") {
+        alert(
+            "❌ Cette commande ne peut plus être annulée."
+        );
+        return;
+    }
+
+
+    commandes[index].statut = "Annulée";
+
+
+    localStorage.setItem(
+        "commandes",
+        JSON.stringify(commandes)
+    );
+
+
+    alert("✅ Votre commande a été annulée.");
+
+
+    afficherMesCommandes();
+}
+
 
 function fermerMesCommandes() {
 
