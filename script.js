@@ -1062,9 +1062,19 @@ function afficherMesCommandes() {
                         </p>
 
                         <p>
-                            <strong>Statut :</strong>
+                             <strong>Commune :</strong>
+                              ${commande.commune || ""}
+                         </p>
 
-                            <span class="badge-statut
+                         <p>
+                               <strong>Adresse de livraison :</strong>
+                                ${commande.adresse || ""}
+                        </p>
+
+                         <p>
+                              <strong>Statut :</strong>
+
+                              <span class="badge-statut
                                 ${
                                     commande.statut === "Livrée"
                                         ? "badge-livree"
