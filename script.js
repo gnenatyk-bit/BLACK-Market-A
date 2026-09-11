@@ -2825,6 +2825,11 @@ function afficherVentes() {
                             ${commande.date}
                         </p>
 
+                        <p>
+                              <strong>💳 Paiement :</strong>
+                              ${commande.modePaiement || "Non renseigné"}
+                        </p>
+
                         <h4 style="margin-top:12px;">
                             Produits vendus :
                         </h4>
