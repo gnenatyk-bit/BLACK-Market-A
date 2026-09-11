@@ -639,6 +639,7 @@ function afficherMasquerPanier() {
 }
 
 
+
 /* =====================================================
    12. RECHERCHE PAR NOM
 ===================================================== */
@@ -659,6 +660,9 @@ function rechercherProduits() {
         );
 
 
+    let nombreResultats = 0;
+
+
     produits.forEach(function(produit) {
 
         const nomProduit =
@@ -671,11 +675,14 @@ function rechercherProduits() {
         if (
             recherche === ""
             ||
-            (nomProduit &&
-             nomProduit.includes(recherche))
+            (
+                nomProduit &&
+                nomProduit.includes(recherche)
+            )
         ) {
 
             produit.style.display = "";
+            nombreResultats++;
 
         } else {
 
@@ -685,7 +692,81 @@ function rechercherProduits() {
 
     });
 
+
+    /* =================================================
+       MESSAGE SI AUCUN PRODUIT
+    ================================================= */
+
+    let message =
+        document.getElementById(
+            "message-aucun-produit"
+        );
+
+
+    if (!message) {
+
+        message =
+            document.createElement("p");
+
+        message.id =
+            "message-aucun-produit";
+
+        message.textContent =
+            "🔎 Aucun produit ne correspond à votre recherche.";
+
+        message.style.textAlign =
+            "center";
+
+        message.style.padding =
+            "30px 15px";
+
+        message.style.fontSize =
+            "16px";
+
+        message.style.fontWeight =
+            "bold";
+
+        message.style.color =
+            "#666";
+
+        message.style.gridColumn =
+            "1 / -1";
+
+        const grilleProduits =
+            document.querySelector(
+                ".produits"
+            );
+
+        if (grilleProduits) {
+
+            grilleProduits.appendChild(
+                message
+            );
+
+        }
+
+    }
+
+
+    if (
+        recherche === ""
+        ||
+        nombreResultats > 0
+    ) {
+
+        message.style.display =
+            "none";
+
+    } else {
+
+        message.style.display =
+            "block";
+
+    }
+
 }
+
+
 /* =====================================================
    RECHERCHE INSTANTANÉE
 ===================================================== */
