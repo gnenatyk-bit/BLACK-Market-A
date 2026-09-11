@@ -686,6 +686,27 @@ function rechercherProduits() {
     });
 
 }
+/* =====================================================
+   RECHERCHE INSTANTANÉE
+===================================================== */
+
+const champRecherche =
+    document.getElementById(
+        "recherche-produit"
+    );
+
+if (champRecherche) {
+
+    champRecherche.addEventListener(
+        "input",
+        function() {
+
+            rechercherProduits();
+
+        }
+    );
+
+}
 
 
 /* =====================================================
