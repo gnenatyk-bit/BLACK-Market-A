@@ -1826,15 +1826,19 @@ function creerCommande() {
         )?.value.trim();
 
 
-    if (!nom || !telephone || !adresse) {
+    if (!nom || !telephone || !commune || !adresse) {
+    alert(
+        "❌ Veuillez remplir toutes les informations obligatoires."
+    );
+    return;
+}
 
-        alert(
-            "❌ Veuillez remplir toutes les informations obligatoires."
-        );
-
-        return;
-
-    }
+if (telephone.length < 8) {
+    alert(
+        "❌ Veuillez saisir un numéro de téléphone valide."
+    );
+    return;
+}
 
 
     /*
