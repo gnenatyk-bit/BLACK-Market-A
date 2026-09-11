@@ -387,6 +387,22 @@ document.addEventListener(
     }
 );
 
+/* =====================================================
+   FERMER LA FICHE PRODUIT
+===================================================== */
+
+function fermerFicheProduit() {
+
+    const fenetre =
+        document.getElementById(
+            "fenetre-fiche-produit"
+        );
+
+    if (fenetre) {
+        fenetre.style.display = "none";
+    }
+}
+
 
 /* =====================================================
    6. VÉRIFIER LE STOCK DU PANIER
