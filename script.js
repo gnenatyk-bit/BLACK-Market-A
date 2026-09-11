@@ -1272,12 +1272,22 @@ function afficherNomClient() {
         );
 
 
-    if (utilisateur) {
+if (
+    utilisateur &&
+    utilisateur.prenom &&
+    utilisateur.nom &&
+    utilisateur.email &&
+    utilisateur.telephone &&
+    utilisateur.commune &&
+    utilisateur.adresse
+) {
 
-        bouton.textContent =
-            "👤 " + utilisateur.nom;
+    bouton.textContent =
+        "👤 " + utilisateur.prenom;
 
-    } else {
+} else {
+
+   
 
         bouton.textContent =
             "👤 S'inscrire";
