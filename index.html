@@ -815,79 +815,140 @@ https://github.com/gnenatyk-bit/BLACK-Market-A/edit/main/index.html
         }
 
 
-        /* =====================================================
-           PAIEMENT
-        ===================================================== */
+/* =====================================================
+   PAIEMENT
+===================================================== */
 
-        .fenetre-paiement {
-            z-index: 11000;
-        }
+.fenetre-paiement {
+    z-index: 11000;
+}
 
-        .formulaire-paiement {
+.formulaire-paiement {
+    position: relative;
+    width: 90%;
+    max-width: 450px;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+}
 
-            position: relative;
+.formulaire-paiement h2 {
+    text-align: center;
+    margin: 5px 0 8px;
+    color: #111;
+    font-size: 24px;
+    font-weight: 800;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #d4af37;
+}
 
-            width: 90%;
+.formulaire-paiement > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 22px;
+    font-size: 14px;
+}
 
-            max-width: 450px;
+.modes-paiement {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
-            background: white;
+.modes-paiement button {
+    width: 100%;
+    min-height: 54px;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    color: #222;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
 
-            padding: 30px;
+.modes-paiement button:hover {
+    border-color: #d4af37;
+    background: #fffaf0;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
 
-            border-radius: 15px;
-        }
+.modes-paiement button:active {
+    transform: scale(0.98);
+}
 
-        .formulaire-paiement h2 {
+.fermer-paiement {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #111;
+    color: #d4af37;
+    font-size: 19px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
 
-            text-align: center;
+.fermer-paiement:hover {
+    background: #d4af37;
+    color: #111;
+    transform: rotate(90deg) scale(1.08);
+}
 
-            margin-bottom: 10px;
-        }
 
-        .formulaire-paiement > p {
+/* =====================================================
+   PAIEMENT — MOBILE
+===================================================== */
 
-            text-align: center;
+@media (max-width: 500px) {
 
-            color: #666;
+    .formulaire-paiement {
+        width: 94%;
+        max-width: 400px;
+        padding: 25px 15px 20px;
+        border-radius: 18px;
+    }
 
-            margin-bottom: 20px;
-        }
+    .formulaire-paiement h2 {
+        font-size: 21px;
+        margin-top: 5px;
+    }
 
-        .modes-paiement {
+    .formulaire-paiement > p {
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
 
-            display: flex;
+    .modes-paiement {
+        gap: 10px;
+    }
 
-            flex-direction: column;
+    .modes-paiement button {
+        min-height: 50px;
+        padding: 12px 13px;
+        font-size: 14px;
+    }
 
-            gap: 12px;
-        }
-
-        .modes-paiement button {
-
-            width: 100%;
-
-            padding: 14px;
-
-            border: 1px solid #ddd;
-
-            border-radius: 8px;
-
-            background: white;
-
-            font-size: 16px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-        }
-
-        .modes-paiement button:hover {
-
-            background: #f5f5f5;
-        }
-
-        .fermer-paiement {
+    .fermer-paiement {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+    }
+}
 
             position: absolute;
 
