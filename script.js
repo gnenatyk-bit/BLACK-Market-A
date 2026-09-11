@@ -696,7 +696,7 @@ function filtrerCategorie(categorie) {
 
     const produits =
         document.querySelectorAll(
-            ".produit"
+            ".produit, .carte-produit"
         );
 
 
@@ -706,7 +706,12 @@ function filtrerCategorie(categorie) {
             produit.dataset.categorie;
 
 
-        if (cat === categorie) {
+        if (
+            cat
+            &&
+            cat.toLowerCase()
+            === categorie.toLowerCase()
+        ) {
 
             produit.style.display = "";
 
@@ -717,40 +722,6 @@ function filtrerCategorie(categorie) {
         }
 
     });
-
-
-    const produitsVendeurs =
-        document.getElementById(
-            "produits-vendeurs"
-        );
-
-
-    if (produitsVendeurs) {
-
-        const cartes =
-            produitsVendeurs.querySelectorAll(
-                ".produit, .carte-produit"
-            );
-
-
-        cartes.forEach(function(carte) {
-
-            if (
-                carte.dataset.categorie
-                === categorie
-            ) {
-
-                carte.style.display = "";
-
-            } else {
-
-                carte.style.display = "none";
-
-            }
-
-        });
-
-    }
 
 }
 
