@@ -1460,8 +1460,12 @@ function creerCommande() {
                 "fr-FR"
             ),
 
+        
         statut:
-            "En attente"
+    "En attente",
+
+modePaiement:
+    null
 
     };
 
