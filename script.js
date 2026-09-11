@@ -1645,6 +1645,70 @@ function choisirPaiement(mode) {
     }
 
 
+    /* =================================================
+       ENREGISTRER LE MOYEN DE PAIEMENT
+    ================================================= */
+
+    if (commandeEnCours) {
+
+        const nomsPaiement = {
+
+            wave: "Wave",
+
+            orange: "Orange Money",
+
+            mtn: "MTN Mobile Money",
+
+            moov: "Moov Money",
+
+            livraison: "Paiement à la livraison"
+
+        };
+
+
+        commandeEnCours.modePaiement =
+            nomsPaiement[mode] || mode;
+
+
+        let commandes =
+            JSON.parse(
+                localStorage.getItem("commandes")
+            ) || [];
+
+
+        const index =
+            commandes.findIndex(
+                function(commande) {
+
+                    return (
+                        commande.id
+                        === commandeEnCours.id
+                    );
+
+                }
+            );
+
+
+        if (index !== -1) {
+
+            commandes[index].modePaiement =
+                commandeEnCours.modePaiement;
+
+
+            localStorage.setItem(
+                "commandes",
+                JSON.stringify(commandes)
+            );
+
+        }
+
+    }
+
+
+    /* =================================================
+       OUVRIR LA FENÊTRE CORRESPONDANTE
+    ================================================= */
+
     const fenetres = {
 
         wave: "fenetre-wave",
