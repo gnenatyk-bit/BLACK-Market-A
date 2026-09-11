@@ -1466,6 +1466,24 @@ try {
     commandes = [];
 }
 
+   /* =====================================================
+   VÉRIFIER LA STRUCTURE DES COMMANDES
+===================================================== */
+
+commandes = commandes.filter(function(commande) {
+
+    return (
+        commande &&
+        commande.id &&
+        commande.nom &&
+        commande.telephone &&
+        Array.isArray(commande.produits) &&
+        typeof commande.total === "number" &&
+        commande.statut
+    );
+
+});
+
     if (commandes.length === 0) {
 
         liste.innerHTML = `
