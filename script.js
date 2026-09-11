@@ -141,13 +141,15 @@ function ajouterAuPanier(
 
         }
 
-        sauvegarderPanier();
+       sauvegarderPanier();
 
-        actualiserNombrePanier();
+actualiserNombrePanier();
 
-        afficherPanier();
+afficherPanier();
 
-        return;
+afficherConfirmationPanier(nom);
+
+return;
 
     }
 
@@ -230,6 +232,40 @@ function ajouterAuPanier(
 
     afficherPanier();
 
+}
+
+/* =====================================================
+   CONFIRMATION VISUELLE APRÈS AJOUT AU PANIER
+===================================================== */
+
+function afficherConfirmationPanier(nomProduit) {
+
+    const notification =
+        document.createElement("div");
+
+    notification.textContent =
+        "🛒 " + nomProduit + " ajouté au panier !";
+
+    notification.style.position = "fixed";
+    notification.style.top = "20px";
+    notification.style.right = "20px";
+    notification.style.zIndex = "20000";
+    notification.style.padding = "14px 20px";
+    notification.style.background = "#111";
+    notification.style.color = "#d4af37";
+    notification.style.border = "2px solid #d4af37";
+    notification.style.borderRadius = "10px";
+    notification.style.fontWeight = "bold";
+    notification.style.boxShadow =
+        "0 5px 20px rgba(0,0,0,0.25)";
+
+    document.body.appendChild(notification);
+
+    setTimeout(function() {
+
+        notification.remove();
+
+    }, 2500);
 }
 
 /* =====================================================
