@@ -951,113 +951,156 @@ https://github.com/gnenatyk-bit/BLACK-Market-A/edit/main/index.html
 }
 
     
-        /* =====================================================
-           WAVE
-        ===================================================== */
+/* =====================================================
+   WAVE
+===================================================== */
 
-        .fenetre-wave {
-            z-index: 12000;
-        }
+.fenetre-wave {
+    z-index: 12000;
+}
 
-        .formulaire-wave {
+.formulaire-wave {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+}
 
-            position: relative;
+.formulaire-wave h2 {
+    margin: 5px 0 15px;
+    color: #111;
+    font-size: 23px;
+    font-weight: 800;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #1689ff;
+}
 
-            width: 90%;
+.formulaire-wave p {
+    color: #666;
+    margin: 18px 0 8px;
+    font-size: 14px;
+}
 
-            max-width: 400px;
+#montant-wave {
+    font-size: 26px;
+    color: #1689ff;
+    margin: 0 0 25px;
+    font-weight: 800;
+}
 
-            background: white;
+#form-wave {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
-            padding: 30px;
+#form-wave input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
 
-            border-radius: 15px;
+#form-wave input:focus {
+    border-color: #1689ff;
+    box-shadow: 0 0 0 3px rgba(22, 137, 255, 0.12);
+}
 
-            text-align: center;
-        }
+#form-wave button {
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background-color: #1689ff;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
 
-        .formulaire-wave h2 {
+#form-wave button:hover {
+    background-color: #0d74dd;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(22, 137, 255, 0.25);
+}
 
-            margin-bottom: 15px;
-        }
+#form-wave button:active {
+    transform: scale(0.98);
+}
 
-        .formulaire-wave p {
+.fermer-wave {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #111;
+    color: #1689ff;
+    font-size: 19px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
 
-            color: #666;
+.fermer-wave:hover {
+    background: #1689ff;
+    color: white;
+    transform: rotate(90deg) scale(1.08);
+}
 
-            margin-bottom: 8px;
-        }
 
-        #montant-wave {
+/* =====================================================
+   WAVE — MOBILE
+===================================================== */
 
-            font-size: 24px;
+@media (max-width: 500px) {
 
-            margin-bottom: 25px;
-        }
+    .formulaire-wave {
+        width: 94%;
+        max-width: 380px;
+        padding: 25px 15px 20px;
+        border-radius: 18px;
+    }
 
-        #form-wave {
+    .formulaire-wave h2 {
+        font-size: 21px;
+    }
 
-            display: flex;
+    #montant-wave {
+        font-size: 23px;
+        margin-bottom: 20px;
+    }
 
-            flex-direction: column;
+    #form-wave input {
+        padding: 12px;
+        font-size: 14px;
+    }
 
-            gap: 12px;
-        }
+    #form-wave button {
+        padding: 13px;
+        font-size: 14px;
+    }
 
-        #form-wave input {
-
-            width: 100%;
-
-            padding: 13px;
-
-            border: 1px solid #ddd;
-
-            border-radius: 8px;
-
-            font-size: 15px;
-
-            outline: none;
-        }
-
-        #form-wave input:focus {
-
-            border-color: #1689ff;
-        }
-
-        #form-wave button {
-
-            padding: 13px;
-
-            border: none;
-
-            border-radius: 8px;
-
-            background-color: #1689ff;
-
-            color: white;
-
-            font-weight: bold;
-
-            font-size: 15px;
-
-            cursor: pointer;
-        }
-
-        .fermer-wave {
-
-            position: absolute;
-
-            top: 10px;
-            right: 10px;
-
-            border: none;
-
-            background: none;
-
-            font-size: 20px;
-
-            cursor: pointer;
-        }
+    .fermer-wave {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+    }
+}
 
 
         /* =====================================================
