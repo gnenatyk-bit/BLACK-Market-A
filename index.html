@@ -6636,6 +6636,102 @@ https://github.com/gnenatyk-bit/BLACK-Market-A/edit/main/index.html
     transform: translateX(4px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+        /* =====================================================
+   MES COMMANDES — CARTES
+===================================================== */
+
+.commande-client {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 14px;
+    padding: 16px;
+    background: #1b1b1b;
+    border-left: 4px solid #d4af37;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.commande-client:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.2);
+}
+
+.commande-client p {
+    margin: 0 0 10px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.commande-client strong {
+    color: #d4af37;
+}
+
+.commande-client ul {
+    margin: 6px 0 0;
+    padding-left: 22px;
+}
+
+.commande-client li {
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+        /* =====================================================
+   STATUT DES COMMANDES
+===================================================== */
+
+.badge-statut {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.badge-attente {
+    background: #fff1c7;
+    color: #8a6500;
+}
+
+.badge-preparation {
+    background: #e8e0ff;
+    color: #5b3ca8;
+}
+
+.badge-expediee {
+    background: #dcecff;
+    color: #245a9b;
+}
+
+.badge-livree {
+    background: #dff5e5;
+    color: #217a3c;
+}
+        /* =====================================================
+   MES COMMANDES — MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .contenu-commandes {
+        width: 94%;
+        max-width: 500px;
+        max-height: 88vh;
+        padding: 20px 12px;
+        border-radius: 18px;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+
+    .contenu-commandes h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #d4af37;
+    }
+
+}
 
 
          
