@@ -3079,6 +3079,63 @@ function changerStatutCommande(
         commande.statut;
 
 
+    /* =================================================
+       VÉRIFICATION DE L'ORDRE DES STATUTS
+    ================================================= */
+
+    const ordreStatuts = {
+        "En attente": 1,
+        "En préparation": 2,
+        "En livraison": 3,
+        "Livrée": 4,
+        "Annulée": 5
+    };
+
+
+    if (
+        nouveauStatut !== "Annulée"
+        &&
+        ordreStatuts[nouveauStatut]
+        <
+        ordreStatuts[ancienStatut]
+    ) {
+
+        alert(
+            "❌ Impossible de revenir à un statut précédent."
+        );
+
+        afficherVentes();
+
+        return;
+
+    }
+
+
+    /* =================================================
+       UNE COMMANDE ANNULÉE OU LIVRÉE EST TERMINÉE
+    ================================================= */
+
+    if (
+        ancienStatut === "Annulée"
+        ||
+        ancienStatut === "Livrée"
+    ) {
+
+        alert(
+            "❌ Cette commande est déjà terminée."
+        );
+
+        afficherVentes();
+
+        return;
+
+    }
+
+
+    /* =================================================
+       ENREGISTRER LE NOUVEAU STATUT
+    ================================================= */
+
     commande.statut =
         nouveauStatut;
 
@@ -3091,8 +3148,6 @@ function changerStatutCommande(
 
     if (
         nouveauStatut === "Livrée"
-        &&
-        ancienStatut !== "Livrée"
     ) {
 
         alert(
@@ -3109,7 +3164,6 @@ function changerStatutCommande(
     actualiserStatistiquesVendeur();
 
 }
-
 
 /* =====================================================
    35. STATISTIQUES VENDEUR
