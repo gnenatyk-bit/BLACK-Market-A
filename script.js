@@ -3490,6 +3490,19 @@ function changerStatutCommande(
 
     const ancienStatut =
         commande.statut;
+   const statutsAutorises = [
+    "En attente",
+    "En préparation",
+    "En livraison",
+    "Livrée",
+    "Annulée"
+];
+
+if (!statutsAutorises.includes(nouveauStatut)) {
+    alert("❌ Statut de commande invalide.");
+    afficherVentes();
+    return;
+}
 
 
     /* =================================================
