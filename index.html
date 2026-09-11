@@ -6782,6 +6782,59 @@ https://github.com/gnenatyk-bit/BLACK-Market-A/edit/main/index.html
 .commande-client li::before {
     content: "🛍️ ";
 }
+        /* =====================================================
+   TOTAL DE LA COMMANDE
+===================================================== */
+
+.commande-client p:nth-of-type(3) {
+    padding: 10px;
+    margin: 10px 0;
+    background: #d4af37;
+    color: #111;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.commande-client p:nth-of-type(3) strong {
+    color: #111;
+}
+        /* =====================================================
+   EFFET SUR LE STATUT
+===================================================== */
+
+.badge-statut {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.badge-statut:hover {
+    transform: scale(1.05);
+}
+        /* =====================================================
+   ESPACEMENT DES INFORMATIONS
+===================================================== */
+
+.commande-client {
+    line-height: 1.5;
+}
+
+.commande-client p {
+    word-break: break-word;
+}
+
+@media (max-width: 500px) {
+
+    .commande-client {
+        padding: 14px;
+        margin-bottom: 12px;
+    }
+
+    .commande-client p {
+        font-size: 13px;
+    }
+
+}
 
 
 
