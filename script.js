@@ -976,12 +976,6 @@ function afficherInformationsClient() {
                  ${utilisateur.adresse || ""}
             </p>
 
-
-            <p>
-                   <strong>Téléphone :</strong>
-                     ${commande.telephone || ""}
-            </p>
-
         </div>
 
     `;
