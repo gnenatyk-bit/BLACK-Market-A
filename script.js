@@ -325,6 +325,25 @@ function ouvrirFicheProduit(produit) {
             ${description}
         </p>
 
+
+        <button
+    type="button"
+    onclick="ajouterAuxFavoris(this.closest('.contenu-fiche-produit')._produit)"
+    style="
+        width:100%;
+        padding:13px;
+        margin-bottom:12px;
+        border:none;
+        border-radius:10px;
+        background:#d4af37;
+        color:#111;
+        font-weight:bold;
+        cursor:pointer;
+    "
+>
+    ❤️ Ajouter aux favoris
+</button>
+
         <button
             type="button"
             onclick="this.closest('.contenu-fiche-produit').querySelector('.fermer-fiche-produit').click()"
@@ -401,6 +420,40 @@ function fermerFicheProduit() {
     if (fenetre) {
         fenetre.style.display = "none";
     }
+}
+/* =====================================================
+   FAVORIS
+===================================================== */
+
+let favoris =
+    JSON.parse(
+        localStorage.getItem("favoris")
+    ) || [];
+function ajouterAuxFavoris(produit) {
+
+    const nom =
+        produit.querySelector("h3")?.textContent.trim();
+
+    if (!nom) return;
+
+    const dejaFavori =
+        favoris.includes(nom);
+
+    if (dejaFavori) {
+        favoris =
+            favoris.filter(function(item) {
+                return item !== nom;
+            });
+        alert("💔 Produit retiré des favoris.");
+    } else {
+        favoris.push(nom);
+        alert("❤️ Produit ajouté aux favoris !");
+    }
+
+    localStorage.setItem(
+        "favoris",
+        JSON.stringify(favoris)
+    );
 }
 
 
