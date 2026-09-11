@@ -232,6 +232,161 @@ function ajouterAuPanier(
 
 }
 
+/* =====================================================
+   FICHE PRODUIT
+===================================================== */
+
+function ouvrirFicheProduit(produit) {
+
+    const fenetre =
+        document.getElementById(
+            "fenetre-fiche-produit"
+        );
+
+    const details =
+        document.getElementById(
+            "details-fiche-produit"
+        );
+
+    if (!fenetre || !details) return;
+
+
+    const image =
+        produit.querySelector(
+            ".image-produit img"
+        )?.src || "";
+
+
+    const nom =
+        produit.querySelector(
+            "h3"
+        )?.textContent.trim() || "";
+
+
+    const description =
+        produit.querySelector(
+            ".description"
+        )?.textContent.trim() || "";
+
+
+    const prix =
+        produit.querySelector(
+            ".prix"
+        )?.textContent.trim() || "";
+
+
+    details.innerHTML = `
+
+        ${
+            image
+            ? `
+                <img
+                    src="${image}"
+                    alt="${nom}"
+                    style="
+                        width:100%;
+                        max-height:300px;
+                        object-fit:contain;
+                        border-radius:12px;
+                        margin-bottom:20px;
+                    "
+                >
+            `
+            : ""
+        }
+
+        <h2
+            style="
+                margin-bottom:12px;
+                color:#111;
+            "
+        >
+            ${nom}
+        </h2>
+
+        <div
+            style="
+                color:#d4af37;
+                font-size:22px;
+                font-weight:bold;
+                margin-bottom:15px;
+            "
+        >
+            ${prix}
+        </div>
+
+        <p
+            style="
+                color:#555;
+                line-height:1.6;
+                margin-bottom:20px;
+            "
+        >
+            ${description}
+        </p>
+
+        <button
+            type="button"
+            onclick="this.closest('.contenu-fiche-produit').querySelector('.fermer-fiche-produit').click()"
+            style="
+                width:100%;
+                padding:13px;
+                border:none;
+                border-radius:10px;
+                background:#111;
+                color:#d4af37;
+                font-weight:bold;
+                cursor:pointer;
+            "
+        >
+            Fermer
+        </button>
+
+    `;
+
+
+    fenetre.style.display = "flex";
+}
+
+/* =====================================================
+   OUVRIR LA FICHE EN CLIQUANT SUR UN PRODUIT
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(e) {
+
+        const produit =
+            e.target.closest(
+                ".produit, .carte-produit"
+            );
+
+        if (!produit) return;
+
+
+        /*
+           Ne pas ouvrir la fiche
+           lorsqu'on clique sur un bouton.
+        */
+
+        if (
+            e.target.closest("button")
+            ||
+            e.target.closest("select")
+            ||
+            e.target.closest("input")
+        ) {
+
+            return;
+
+        }
+
+
+        ouvrirFicheProduit(produit);
+
+    }
+);
+
 
 /* =====================================================
    6. VÉRIFIER LE STOCK DU PANIER
