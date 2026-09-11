@@ -4377,3 +4377,31 @@ if (imageArticle) {
 
     }
 );
+
+
+/* =====================================================
+   AFFICHER / CACHER LE BOUTON RETOUR EN HAUT
+===================================================== */
+
+const boutonRetourHaut =
+    document.getElementById(
+        "bouton-retour-haut"
+    );
+
+if (boutonRetourHaut) {
+
+    boutonRetourHaut.style.display = "none";
+
+    window.addEventListener(
+        "scroll",
+        function() {
+
+            if (window.scrollY > 300) {
+                boutonRetourHaut.style.display = "flex";
+            } else {
+                boutonRetourHaut.style.display = "none";
+            }
+
+        }
+    );
+}
