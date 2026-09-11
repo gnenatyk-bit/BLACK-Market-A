@@ -1068,6 +1068,11 @@ function afficherMesCommandes() {
                         </p>
 
                         <p>
+                            <strong>Paiement :</strong>
+                            ${commande.modePaiement || "Non renseigné"}
+                         </p>
+
+                        <p>
                              <strong>Commune :</strong>
                               ${commande.commune || ""}
                          </p>
