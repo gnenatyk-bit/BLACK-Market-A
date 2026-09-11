@@ -1307,6 +1307,11 @@ function creerCommande() {
         document.getElementById(
             "telephone-commande"
         )?.value.trim();
+
+    const commune =
+        document.getElementById(
+            "commune-commande"
+        )?.value;
    
     const adresse =
         document.getElementById(
@@ -1416,6 +1421,8 @@ function creerCommande() {
         nom: nom,
 
         telephone: telephone,
+
+        commune: commune,
 
         adresse: adresse,
 
