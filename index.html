@@ -1558,87 +1558,137 @@ https://github.com/gnenatyk-bit/BLACK-Market-A/edit/main/index.html
 }
 
 
+/* =====================================================
+   LIVRAISON
+===================================================== */
 
-        /* =====================================================
-           LIVRAISON
-        ===================================================== */
+.fenetre-livraison {
+    z-index: 12000;
+}
 
-        .fenetre-livraison {
-            z-index: 12000;
-        }
+.formulaire-livraison {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+}
 
-        .formulaire-livraison {
+.formulaire-livraison h2 {
+    margin: 5px 0 15px;
+    color: #111;
+    font-size: 23px;
+    font-weight: 800;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #d4af37;
+}
 
-            position: relative;
+.formulaire-livraison p {
+    color: #666;
+    margin: 18px 0 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
 
-            width: 90%;
+#montant-livraison {
+    font-size: 26px;
+    color: #d4af37;
+    margin: 0 0 25px;
+    font-weight: 800;
+}
 
-            max-width: 400px;
+#confirmer-livraison {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background-color: #111;
+    color: #d4af37;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
 
-            background: white;
+#confirmer-livraison:hover {
+    background-color: #d4af37;
+    color: #111;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(212, 175, 55, 0.3);
+}
 
-            padding: 30px;
+#confirmer-livraison:active {
+    transform: scale(0.98);
+}
 
-            border-radius: 15px;
+.fermer-livraison {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #111;
+    color: #d4af37;
+    font-size: 19px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
 
-            text-align: center;
-        }
+.fermer-livraison:hover {
+    background: #d4af37;
+    color: #111;
+    transform: rotate(90deg) scale(1.08);
+}
 
-        .formulaire-livraison h2 {
 
-            margin-bottom: 15px;
-        }
+/* =====================================================
+   LIVRAISON — MOBILE
+===================================================== */
 
-        .formulaire-livraison p {
+@media (max-width: 500px) {
 
-            color: #666;
+    .formulaire-livraison {
+        width: 94%;
+        max-width: 380px;
+        padding: 25px 15px 20px;
+        border-radius: 18px;
+    }
 
-            margin-bottom: 10px;
-        }
+    .formulaire-livraison h2 {
+        font-size: 21px;
+    }
 
-        #montant-livraison {
+    .formulaire-livraison p {
+        font-size: 13px;
+    }
 
-            font-size: 24px;
+    #montant-livraison {
+        font-size: 23px;
+        margin-bottom: 20px;
+    }
 
-            margin-bottom: 25px;
-        }
+    #confirmer-livraison {
+        padding: 13px;
+        font-size: 14px;
+    }
 
-        #confirmer-livraison {
+    .fermer-livraison {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+    }
+}
 
-            width: 100%;
-
-            padding: 13px;
-
-            border: none;
-
-            border-radius: 8px;
-
-            background-color: #009e49;
-
-            color: white;
-
-            font-weight: bold;
-
-            font-size: 15px;
-
-            cursor: pointer;
-        }
-
-        .fermer-livraison {
-
-            position: absolute;
-
-            top: 10px;
-            right: 10px;
-
-            border: none;
-
-            background: none;
-
-            font-size: 20px;
-
-            cursor: pointer;
-        }
 
 
         /* =====================================================
