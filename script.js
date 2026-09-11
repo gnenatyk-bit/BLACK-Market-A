@@ -1439,11 +1439,32 @@ function afficherMesCommandes() {
     if (!fenetre || !liste) return;
 
 
-    const commandes =
-        JSON.parse(
-            localStorage.getItem("commandes")
-        ) || [];
 
+   let commandes = [];
+
+try {
+
+    const donneesCommandes =
+        localStorage.getItem("commandes");
+
+    commandes =
+        donneesCommandes
+            ? JSON.parse(donneesCommandes)
+            : [];
+
+    if (!Array.isArray(commandes)) {
+        commandes = [];
+    }
+
+} catch (erreur) {
+
+    console.error(
+        "❌ Données de commandes invalides.",
+        erreur
+    );
+
+    commandes = [];
+}
 
     if (commandes.length === 0) {
 
