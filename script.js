@@ -453,6 +453,70 @@ function fermerFicheProduit() {
         fenetre.style.display = "none";
     }
 }
+
+
+/* =====================================================
+   AFFICHER LES PRODUITS RÉCEMMENT CONSULTÉS
+===================================================== */
+
+function afficherProduitsRecents() {
+
+    const liste =
+        document.getElementById(
+            "liste-produits-recents"
+        );
+
+    if (!liste) return;
+
+    if (produitsRecents.length === 0) {
+        liste.innerHTML = "";
+        return;
+    }
+
+    const produits =
+        document.querySelectorAll(
+            ".produit, .carte-produit"
+        );
+
+    const produitsTrouves = [];
+
+    produitsRecents.forEach(function(nomRecent) {
+
+        produits.forEach(function(produit) {
+
+            const nom =
+                produit.querySelector("h3")
+                    ?.textContent
+                    .trim();
+
+            if (
+                nom &&
+                nom === nomRecent &&
+                !produitsTrouves.includes(produit)
+            ) {
+                produitsTrouves.push(produit);
+            }
+
+        });
+
+    });
+
+    liste.innerHTML = "";
+
+    produitsTrouves.forEach(function(produit) {
+
+        const copie =
+            produit.cloneNode(true);
+
+        copie.style.display = "";
+
+        liste.appendChild(copie);
+
+    });
+}
+
+
+
 /* =====================================================
    FAVORIS
 ===================================================== */
