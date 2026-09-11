@@ -397,6 +397,7 @@ if (produit) {
 
 
     fenetre.style.display = "flex";
+    afficherProduitsRecents();
 }
 
 /* =====================================================
