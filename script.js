@@ -640,7 +640,7 @@ function afficherMasquerPanier() {
 
 
 /* =====================================================
-   12. RECHERCHE
+   12. RECHERCHE PAR NOM
 ===================================================== */
 
 function rechercherProduits() {
@@ -654,18 +654,25 @@ function rechercherProduits() {
 
 
     const produits =
-        document.querySelectorAll(".produit");
+        document.querySelectorAll(
+            ".produit, .carte-produit"
+        );
 
 
     produits.forEach(function(produit) {
 
-        const texte =
-            produit.textContent.toLowerCase();
+        const nomProduit =
+            produit.querySelector("h3")
+            ?.textContent
+            .toLowerCase()
+            .trim();
 
 
         if (
             recherche === ""
-            || texte.includes(recherche)
+            ||
+            (nomProduit &&
+             nomProduit.includes(recherche))
         ) {
 
             produit.style.display = "";
@@ -677,44 +684,6 @@ function rechercherProduits() {
         }
 
     });
-
-
-    const produitsVendeurs =
-        document.getElementById(
-            "produits-vendeurs"
-        );
-
-
-    if (produitsVendeurs) {
-
-        const cartes =
-            produitsVendeurs.querySelectorAll(
-                ".produit, .carte-produit"
-            );
-
-
-        cartes.forEach(function(produit) {
-
-            const texte =
-                produit.textContent.toLowerCase();
-
-
-            if (
-                recherche === ""
-                || texte.includes(recherche)
-            ) {
-
-                produit.style.display = "";
-
-            } else {
-
-                produit.style.display = "none";
-
-            }
-
-        });
-
-    }
 
 }
 
