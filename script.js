@@ -251,6 +251,36 @@ function ouvrirFicheProduit(produit) {
     if (!fenetre || !details) return;
 
 
+
+   /* =====================================================
+   ENREGISTRER LE PRODUIT CONSULTÉ
+===================================================== */
+
+if (produit) {
+
+    const nomProduit =
+        produit.querySelector("h3")?.textContent.trim();
+
+    if (nomProduit) {
+
+        produitsRecents =
+            produitsRecents.filter(function(item) {
+                return item !== nomProduit;
+            });
+
+        produitsRecents.unshift(nomProduit);
+
+        produitsRecents =
+            produitsRecents.slice(0, 5);
+
+        localStorage.setItem(
+            "produitsRecents",
+            JSON.stringify(produitsRecents)
+        );
+    }
+}
+
+
     const image =
         produit.querySelector(
             ".image-produit img"
@@ -431,6 +461,16 @@ let favoris =
     JSON.parse(
         localStorage.getItem("favoris")
     ) || [];
+
+/* =====================================================
+   PRODUITS RÉCEMMENT CONSULTÉS
+===================================================== */
+
+let produitsRecents =
+    JSON.parse(
+        localStorage.getItem("produitsRecents")
+    ) || [];
+
 function ajouterAuxFavoris(produit) {
 
     const nom =
