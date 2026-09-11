@@ -2986,18 +2986,18 @@ function afficherVentes() {
                                 En préparation
                             </option>
 
-                            <option
-                                value="Expédiée"
-                                ${
-                                    commande.statut
-                                    === "Expédiée"
-                                    ? "selected"
-                                    : ""
-                                }
-                            >
-                                Expédiée
-                            </option>
 
+                            <option
+    value="En livraison"
+    ${
+        commande.statut
+        === "En livraison"
+        ? "selected"
+        : ""
+    }
+>
+    En livraison
+</option>
                             <option
                                 value="Livrée"
                                 ${
