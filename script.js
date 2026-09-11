@@ -274,6 +274,8 @@ function ouvrirFicheProduit(produit) {
             ".prix"
         )?.textContent.trim() || "";
 
+    details._produit = produit;
+
 
     details.innerHTML = `
 
