@@ -1078,40 +1078,38 @@ function afficherMesCommandes() {
                         </p>
 
 
+<p>
+    <strong>Statut :</strong>
 
-                         <p>
-                           <strong>Statut :</strong>
+    <span class="badge-statut ${
+        commande.statut === "Livrée"
+            ? "badge-livree"
+            : commande.statut === "Expédiée"
+                ? "badge-expediee"
+                : commande.statut === "En préparation"
+                    ? "badge-preparation"
+                    : commande.statut === "Annulée"
+                        ? "badge-annulee"
+                        : "badge-attente"
+    }">
+        ${commande.statut}
+    </span>
+</p>
 
-                           <span class="badge-statut
-                                ${
-                                 commande.statut === "Livrée"
-                                      ? "badge-livree"
-                                      : commande.statut === "Expédiée"
-                                           ? "badge-expediee"
-                                           : commande.statut === "En préparation"
-                                               ? "badge-preparation"
-                                               : commande.statut === "Annulée"
-                                                    ? "badge-annulee"
-                                                    : "badge-attente"
-                                 }
-                            ">
-                                ${commande.statut}
-                      </span>
-                </p>
-
-                {
-                            commande.statut === "En attente"
-                                ? `
-                                     <button
-                                         type="button"
-                                         class="bouton-annuler-commande"
-                                         onclick="annulerCommande('${commande.id}')"
-                                   >
-                                         ✕ Annuler la commande
-                                      </button>
-                                 `
-                                 : ""
-                 }
+${
+    commande.statut === "En attente"
+        ? `
+            <button
+                type="button"
+                class="bouton-annuler-commande"
+                onclick="annulerCommande('${commande.id}')"
+            >
+                ✕ Annuler la commande
+            </button>
+        `
+        : ""
+}
+                         
                         <p>
                             <strong>Produits :</strong>
                         </p>
